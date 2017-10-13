@@ -128,7 +128,7 @@ public class CameraController : MonoBehaviour
 
     bool PointIntoCollider(Vector3 point)
     {
-        if (_collider == null || _collider.Length == 0)
+		if ((_collider == null || _collider.Length == 0) && string.IsNullOrEmpty(_tagCollider))
         {
             return true;
         }
@@ -142,15 +142,22 @@ public class CameraController : MonoBehaviour
         {
             for (int i=0; i<hit.Length; i++)
             {
-                for (int j = 0; j < _collider.Length; j++)
-                {
-                    if (hit[i].collider.gameObject == _collider[j])
-                    {
-						//debug += hit[i].collider.name + ", ";
-                        count++;
-                        break;
-                    }
-                }
+				if (string.IsNullOrEmpty(_tagCollider)) //указание коллайдера прямыми ссылками
+				{
+					for (int j = 0; j < _collider.Length; j++)
+					{
+						if (hit[i].collider.gameObject == _collider[j])
+						{
+							//debug += hit[i].collider.name + ", ";
+							count++;
+							break;
+						}
+					}
+				}
+				else if (hit[i].collider.gameObject.tag == _tagCollider) //коллайдер по тегу
+				{
+					count++;
+				}
             }
         }
 
@@ -161,15 +168,22 @@ public class CameraController : MonoBehaviour
         {
             for (int i=0; i<hit.Length; i++)
             {
-                for (int j = 0; j < _collider.Length; j++)
-                {
-                    if (hit[i].collider.gameObject == _collider[j])
-                    {
-						//debug += hit[i].collider.name + ", ";
-                        count++;
-                        break;
-                    }
-                }
+				if (string.IsNullOrEmpty(_tagCollider)) //указание коллайдера прямыми ссылками
+				{
+					for (int j = 0; j < _collider.Length; j++)
+					{
+						if (hit[i].collider.gameObject == _collider[j])
+						{
+							//debug += hit[i].collider.name + ", ";
+							count++;
+							break;
+						}
+					}
+				}
+				else if (hit[i].collider.gameObject.tag == _tagCollider)
+				{
+					count++;
+				}
             }
         }
 
@@ -179,22 +193,29 @@ public class CameraController : MonoBehaviour
         ray = new Ray(point, Vector3.down);
         hit = Physics.RaycastAll(ray);
         if (hit != null && hit.Length != 0)
-        {
+		{
             for (int i=0; i<hit.Length; i++)
             {
-                for (int j = 0; j < _collider.Length; j++)
-                {
-                    if (hit[i].collider.gameObject == _collider[j])
-                    {
-						//debug += hit[i].collider.name + ", ";
-                        countHighest++;
-                        break;
-                    }
-					else
+				if (string.IsNullOrEmpty(_tagCollider)) //указание коллайдера прямыми ссылками
+				{
+					for (int j = 0; j < _collider.Length; j++)
 					{
-						//debug += hit[i].collider.name.ToUpper() + ", ";
+						if (hit[i].collider.gameObject == _collider[j])
+						{
+							//debug += hit[i].collider.name + ", ";
+							countHighest++;
+							break;
+						}
+						else
+						{
+							//debug += hit[i].collider.name.ToUpper() + ", ";
+						}
 					}
-                }
+				}
+				else  if (hit[i].collider.gameObject.tag == _tagCollider)
+				{
+					countHighest++;
+				}
             }
         }
 
@@ -753,6 +774,7 @@ public class CameraController : MonoBehaviour
 	[SerializeField] bool 			_transformObj;	//true - будет двигаться _obj, false - _parentCamera
 	[SerializeField] bool			_rotationAroundOnlyMouse;
 	[SerializeField] float 			_minPositionForRotation;
+	[SerializeField] string			_tagCollider;
     [SerializeField] GameObject[]   _collider;
 
 	[SerializeField] int _minX;
