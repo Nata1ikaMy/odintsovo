@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Close : MonoBehaviour
 {
-	public void Quait()
+	public void Quit()
 	{
 		Application.Quit();
 	}

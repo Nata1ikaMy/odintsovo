@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 6e1ba8195f84923458d9f3a20dfe766d
+timeCreated: 1508162935
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BarnaulGrotesk
+  fontNames:
+  - BarnaulGrotesk
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 38932b60f74b291459549669658080fc, type: 3}
+  - {fileID: 12800000, guid: 5b845f7423978aa4b950b3e9d34d3857, type: 3}
+  - {fileID: 12800000, guid: 0be6827e435654542bba1d8a0b482451, type: 3}
+  - {fileID: 12800000, guid: 1529540fe698a90408c28fbdf8261e5f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
