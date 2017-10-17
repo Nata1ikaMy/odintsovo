@@ -208,7 +208,7 @@ public class Base : MonoBehaviour
 		}
 	}
 
-    public Apartament GetById(int id)
+    /*public Apartament GetById(int id)
     {
         for (int i = 0; i < _apartament.Count; i++)
         {
@@ -226,7 +226,17 @@ public class Base : MonoBehaviour
         {
             _apartament[i].Show(_apartament[i] == apart);
         }
-    }
+    }*/
+
+	public List<Apartament> GetAll()
+	{
+		List<Apartament> result = new List<Apartament>();
+		for (int i = 0; i < _apartament.Count; i++)
+		{
+			result.Add(_apartament[i]);
+		}
+		return result;
+	}
 
 
     [SerializeField] JsonUse        _json;

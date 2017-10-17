@@ -7,6 +7,11 @@ namespace CustomUiElements
 {
     public class MinMaxSlider : MonoBehaviour
     {
+		public System.Action<float, string> ChangeMinEvent;
+		public System.Action<float, string> ChangeMaxEvent;
+
+		public string id;
+
         [Header("Common settings")]
         public int DecimalPlaces = 2;
         public float MinimumValue = 0;
@@ -58,6 +63,25 @@ namespace CustomUiElements
             MaxSlider.minValue = MinimumValue;
             MaxSlider.maxValue = MaximumValue;
             MaxSlider.wholeNumbers = UseWholeNumbers;
+
+			MinSlider.onValueChanged.AddListener(ChangeMin);
+			MaxSlider.onValueChanged.AddListener(ChangeMax);
         }
+
+		void ChangeMin(float value)
+		{
+			if (ChangeMinEvent != null)
+			{
+				ChangeMinEvent(value, id);
+			}
+		}
+
+		void ChangeMax(float value)
+		{
+			if (ChangeMaxEvent != null)
+			{
+				ChangeMaxEvent(value, id);
+			}
+		}
     }
 }

@@ -54,10 +54,12 @@
      <Compile Include="Assets\CustomUiElements\_Demo\ImageCarousel\ImageCarouselExampleUse.cs" />
      <Compile Include="Assets\CustomUiElements\_Demo\TwoSideSlider\TwoSideSliderDemoUse.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ChooseList.cs" />
      <Compile Include="Assets\Scripts\Close.cs" />
      <Compile Include="Assets\Scripts\Json\Base.cs" />
      <Compile Include="Assets\Scripts\Json\JsonUse.cs" />
      <Compile Include="Assets\Scripts\Json\MiniJSON.cs" />
+     <Compile Include="Assets\Scripts\RoomConditions.cs" />
      <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
      <None Include="Assets\CustomUiElements\_Demo\SideMenu\Audio\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
