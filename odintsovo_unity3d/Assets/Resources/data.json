@@ -254,7 +254,7 @@
 		"section": "0",
 		"square": "42.2",
 		"mprice": "84981.04",
-		"price": "3586199.888",
+		"price": "3586200",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -267,7 +267,7 @@
 		"section": "0",
 		"square": "42.2",
 		"mprice": "84981.04",
-		"price": "3586199.888",
+		"price": "3586200",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -540,7 +540,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "84871.76",
-		"price": "3607049.8",
+		"price": "3607050",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -722,7 +722,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "84871.76",
-		"price": "3607049.8",
+		"price": "3607050",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -735,7 +735,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "84871.76",
-		"price": "3607049.8",
+		"price": "3607050",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -917,7 +917,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "85362.35",
-		"price": "3627899.875",
+		"price": "3627900",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -930,7 +930,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "85362.35",
-		"price": "3627899.875",
+		"price": "3627900",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -1125,7 +1125,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "85362.35",
-		"price": "3627899.875",
+		"price": "3627900",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -1138,7 +1138,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "85362.35",
-		"price": "3627899.875",
+		"price": "3627900",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -1372,7 +1372,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "86343.53",
-		"price": "3669600.025",
+		"price": "3669600",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -1385,7 +1385,7 @@
 		"section": "0",
 		"square": "42.5",
 		"mprice": "86343.53",
-		"price": "3669600.025",
+		"price": "3669600",
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
@@ -2286,5 +2286,8 @@
 		"seller": "1",
 		"house": "A",
 		"isSale": "1"
+	},
+	{
+		"id": ""
 	}
 ]

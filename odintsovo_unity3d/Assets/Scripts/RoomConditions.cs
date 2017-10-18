@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class RoomConditions : MonoBehaviour
 {
-	public System.Action<string, bool> ChangeConditionEvent;
+	public System.Action<string, bool> 	ChangeConditionEvent;
+	public System.Action				ChangeEvent;
 
 	[System.Serializable]
 	public class Condition
@@ -15,7 +16,7 @@ public class RoomConditions : MonoBehaviour
 		[SerializeField] GameObject	_active;
 
 		bool 						_isActive = true;
-		RoomConditions 			_controller;
+		RoomConditions 				_controller;
 
 		public void Activate(RoomConditions controller)
 		{
@@ -26,6 +27,11 @@ public class RoomConditions : MonoBehaviour
 		public void Deactivate()
 		{
 			_button.onClick.RemoveListener(Click);
+		}
+
+		public string ActiveId()
+		{
+			return _isActive ? _id : null;
 		}
 
 		void Click()
@@ -58,6 +64,31 @@ public class RoomConditions : MonoBehaviour
 		{
 			ChangeConditionEvent(id, active);
 		}
+		if (ChangeEvent != null)
+		{
+			ChangeEvent();
+		}
+	}
+
+	public string GetCondition()
+	{
+		string result = null;
+		for (int i = 0; i < _condition.Length; i++)
+		{
+			string activeId = _condition[i].ActiveId();
+			if (! string.IsNullOrEmpty(activeId))
+			{
+				if (string.IsNullOrEmpty(result))
+				{
+					result = activeId;
+				}
+				else
+				{
+					result += "_" + activeId;
+				}
+			}
+		}
+		return result;
 	}
 
 	[SerializeField] Condition[]	_condition;

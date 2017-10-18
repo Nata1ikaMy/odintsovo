@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Base : MonoBehaviour
 {
+	public System.Action LoadInfoEvent;
+
     public class Apartament
     {
         public int      id;         //порядковый номер
@@ -11,9 +13,9 @@ public class Base : MonoBehaviour
 		public int		room;		//количество комнат
         public int      floor;      //этаж
 		public int		section;	//секция
-		public string   square;     //площадь
+		public float	square;     //площадь
 		public string	mprice;		//цена за кв. м.
-		public string 	price;		//цена
+		public int		price;		//цена
 		public string	seller;		//продавец
 		public string	house;      //корпус
 		public bool		isSale;		//в продаже
@@ -58,14 +60,11 @@ public class Base : MonoBehaviour
 				return false;
 			}
 
-			if (dictionary.ContainsKey("square"))
-			{
-				square = dictionary["square"].ToString();
-			}
-			else
+			if (! dictionary.ContainsKey("square") || ! float.TryParse(dictionary["square"].ToString(), out square))
 			{
 				return false;
 			}
+
 
 			if (dictionary.ContainsKey("mprice"))
 			{
@@ -76,11 +75,8 @@ public class Base : MonoBehaviour
 				return false;
 			}
 
-			if (dictionary.ContainsKey("price"))
-			{
-				price = dictionary["price"].ToString();
-			}
-			else
+
+			if (! dictionary.ContainsKey("price") || ! int.TryParse(dictionary["price"].ToString(), out price))
 			{
 				return false;
 			}
@@ -92,7 +88,7 @@ public class Base : MonoBehaviour
 				{
 					seller = "СТИ";
 				}
-				else
+				else //if (sellerId == "1")
 				{
 					seller = "ООО \"МЕТС-ЦЕНТР\"";
 				}
@@ -130,6 +126,21 @@ public class Base : MonoBehaviour
 
 			return true;
         }
+
+		public void SetApartament(Apartament copy)
+		{
+			id = copy.id;
+			number = copy.number;
+			room = copy.room;
+			floor = copy.floor;
+			section = copy.section;
+			square = copy.square;
+			mprice = copy.mprice;
+			price = copy.price;
+			seller = copy.seller;
+			house = copy.house;
+			isSale = copy.isSale;
+		}
 
 		public Sprite GetIcon(bool onlyApart)
 		{
@@ -191,6 +202,10 @@ public class Base : MonoBehaviour
         }
 
 		_isLoadInfo = true;
+		if (LoadInfoEvent != null)
+		{
+			LoadInfoEvent();
+		}
 		LoadObj();
     }
 
@@ -230,12 +245,19 @@ public class Base : MonoBehaviour
 
 	public List<Apartament> GetAll()
 	{
-		List<Apartament> result = new List<Apartament>();
-		for (int i = 0; i < _apartament.Count; i++)
+		if (_isLoadInfo)
 		{
-			result.Add(_apartament[i]);
+			List<Apartament> result = new List<Apartament>();
+			for (int i = 0; i < _apartament.Count; i++)
+			{
+				result.Add(_apartament[i]);
+			}
+			return result;
 		}
-		return result;
+		else
+		{
+			return null;
+		}
 	}
 
 
