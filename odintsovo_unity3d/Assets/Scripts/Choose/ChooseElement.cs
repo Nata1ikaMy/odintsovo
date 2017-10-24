@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChooseElement : MonoBehaviour
 {
 	public System.Action<Base.Apartament> ClickEvent;
-	public System.Action<Base.Apartament, bool> FavoriteEvent;
+	public System.Action<Base.Apartament> FavoriteEvent;
 
 	public void SetColor(bool dark)
 	{
@@ -20,16 +20,16 @@ public class ChooseElement : MonoBehaviour
 
 	public void SetFavorite(bool isFavorite)
 	{
-		_isFavorite = isFavorite;
-		_favoriteImage.SetActive(_isFavorite);
+		_apart.isFavorite = isFavorite;
+		_favoriteImage.SetActive(_apart.isFavorite);
 	}
 
 	public void ChangeFavorite()
 	{
-		SetFavorite(!_isFavorite);
+		SetFavorite(!_apart.isFavorite);
 		if (FavoriteEvent != null)
 		{
-			FavoriteEvent(_apart, _isFavorite);
+			FavoriteEvent(_apart);
 		}
 	}
 
@@ -43,6 +43,7 @@ public class ChooseElement : MonoBehaviour
 		_roomText.text = _apart.room == 0 ? "СТУДИЯ" : _apart.room.ToString();
 		_squareText.text = _apart.square.ToString();
 		_priceText.text = _apart.price.ToString("### ### ###");
+		SetFavorite(_apart.isFavorite);
 	}
 
 	public void Click()
@@ -83,6 +84,5 @@ public class ChooseElement : MonoBehaviour
 	[SerializeField] Color		_squareDarkColor;
 	[SerializeField] Color		_priceDarkColor;
 
-	bool						_isFavorite = false;
 	Base.Apartament 			_apart;
 }

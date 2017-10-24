@@ -2,8 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChooseList : MonoBehaviour
+public class ListController : MonoBehaviour
 {
+	public System.Action<Base.Apartament> ClickEvent;
+	public System.Action<Base.Apartament> FavoriteEvent;
+
+	void Start()
+	{
+		_obj = new List<ChooseElement>();
+		_otherList.FavoriteEvent += SetFavorite;
+	}
+
+	void OnDestroy()
+	{
+		_otherList.FavoriteEvent -= SetFavorite;
+	}
+
 	public enum TypeSort
 	{
 		home = 0,
@@ -14,67 +28,25 @@ public class ChooseList : MonoBehaviour
 		price = 5
 	};
 
-	void Start()
+	public void UpdateScroll(List<Base.Apartament> list)
 	{
-		_base.LoadInfoEvent += LoadBaseInfo;
-	}
-
-	void LoadBaseInfo()
-	{
-		_obj = new List<ChooseElement>();
-		_all = _base.GetAll();
-		UpdateScroll();
-
-		_roomCondition.ChangeEvent += UpdateScroll;
-		_squareCondition.ChangeEvent += UpdateScroll;
-		_floorCondition.ChangeEvent += UpdateScroll;
-		_priceCondition.ChangeEvent += UpdateScroll;
-	}
-
-	void OnDestroy()
-	{
-		_base.LoadInfoEvent -= LoadBaseInfo;
-
-		_roomCondition.ChangeEvent -= UpdateScroll;
-		_squareCondition.ChangeEvent -= UpdateScroll;
-		_floorCondition.ChangeEvent -= UpdateScroll;
-		_priceCondition.ChangeEvent -= UpdateScroll;
-	}
-
-	void UpdateScroll()
-	{
-		if (_apart != null)
-		{
-			_apart.Clear();
-		}
-		else
+		/*if (_apart == null)
 		{
 			_apart = new List<Base.Apartament>();
 		}
-
-		string roomCondition = _roomCondition.GetCondition();
-		for (int i = 0; i < _all.Count; i++)
+		else
 		{
-			if (string.IsNullOrEmpty(roomCondition) || !roomCondition.Contains(_all[i].room.ToString()))
-			{
-				continue;
-			}
-			if (_all[i].square > _squareCondition.maxValue || _all[i].square < _squareCondition.minValue)
-			{
-				continue;
-			}
-			if (_all[i].floor > _floorCondition.maxValue || _all[i].floor < _floorCondition.minValue)
-			{
-				continue;
-			}
-			if (_all[i].price > _priceCondition.maxValue * 1000000 || _all[i].price < _priceCondition.minValue * 1000000)
-			{
-				continue;
-			}
-
-			_apart.Add(_all[i]);
+			_apart.Clear();
 		}
-
+		if (list != null && list.Count > 0)
+		{
+			for (int i = 0; i < list.Count; i++)
+			{
+				Base.Apartament apart = new Base.Apartament(list[i]);
+				_apart.Add(apart);
+			}
+		}*/
+		_apart = list;
 		Sort(_minToMax);
 	}
 
@@ -209,6 +181,9 @@ public class ChooseList : MonoBehaviour
 				ChooseElement element = go.GetComponent<ChooseElement>();
 				if (element != null)
 				{
+					element.FavoriteEvent += Favorite;
+					element.ClickEvent += Click;
+
 					element.SetColor(i % 2 == 0);
 					_obj.Add(element);
 				}
@@ -220,6 +195,10 @@ public class ChooseList : MonoBehaviour
 			for (int i = index - 1; i >= _apart.Count; i--)
 			{
 				ChooseElement element = _obj[i];
+
+				element.FavoriteEvent -= Favorite;
+				element.ClickEvent -= Click;
+
 				_obj.Remove(element);
 				GameObject.Destroy(element.gameObject);
 			}
@@ -231,12 +210,34 @@ public class ChooseList : MonoBehaviour
 		}
 	}
 
+	void Favorite(Base.Apartament apart)
+	{
+		if (FavoriteEvent != null)
+		{
+			FavoriteEvent(apart);
+		}
+		SetFavorite(apart);
+	}
 
-	[SerializeField] Base				_base;
-	[SerializeField] RoomConditions		_roomCondition;
-	[SerializeField] MinmaxSlider		_squareCondition;
-	[SerializeField] MinmaxSlider		_floorCondition;
-	[SerializeField] MinmaxSlider		_priceCondition;
+	void Click(Base.Apartament apart)
+	{
+		if (ClickEvent != null)
+		{
+			ClickEvent(apart);
+		}
+	}
+
+	void SetFavorite(Base.Apartament apart)
+	{
+		for (int i = 0; i < _apart.Count; i++)
+		{
+			if (_apart[i].Equals(apart))
+			{
+				_apart[i].isFavorite = apart.isFavorite;
+				_obj[i].SetFavorite(apart.isFavorite);
+			}
+		}
+	}
 
 	[SerializeField] Transform			_parent;
 	[SerializeField] GameObject			_prefab;
@@ -247,8 +248,8 @@ public class ChooseList : MonoBehaviour
 	[SerializeField] GameObject			_sortRoom;
 	[SerializeField] GameObject			_sortSquare;
 	[SerializeField] GameObject			_sortPrice;
+	[SerializeField] ListController		_otherList;
 
-	List<Base.Apartament>	_all;
 	List<Base.Apartament>	_apart;
 	List<ChooseElement>		_obj;
 

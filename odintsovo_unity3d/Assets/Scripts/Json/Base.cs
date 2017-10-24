@@ -5,8 +5,9 @@ using System.Collections.Generic;
 public class Base : MonoBehaviour
 {
 	public System.Action LoadInfoEvent;
+	public System.Action LoadObjEvent;
 
-    public class Apartament
+	public class Apartament
     {
         public int      id;         //порядковый номер
         public int      number;    	//настоящий номер
@@ -19,6 +20,7 @@ public class Base : MonoBehaviour
 		public string	seller;		//продавец
 		public string	house;      //корпус
 		public bool		isSale;		//в продаже
+		public bool		isFavorite = false;
 
         public GameObject   model;
         public MeshRenderer mesh;
@@ -140,6 +142,7 @@ public class Base : MonoBehaviour
 			seller = copy.seller;
 			house = copy.house;
 			isSale = copy.isSale;
+			isFavorite = copy.isFavorite;
 		}
 
 		public Sprite GetIcon(bool onlyApart)
@@ -153,6 +156,12 @@ public class Base : MonoBehaviour
         {
 			return string.Format("id={0}, number={1}, room={2}, section = {3}, floor={4}, square={5}, mprice={6}, price={7}, seller={8}, house={9}, isSale={10}", id, number, room, section, floor, square, mprice, price, seller, house, isSale);
         }
+
+		public bool Equals(Apartament other)
+		{
+			return id == other.id && number == other.number && room == other.room && floor == other.floor && section == other.section && house == other.house;
+		}
+
 
 		public void Show(bool show)
 		{
@@ -209,6 +218,12 @@ public class Base : MonoBehaviour
 		LoadObj();
     }
 
+	void LoadScene()
+	{
+		_isLoadScene = true;
+		LoadObj();
+	}
+
 	void LoadObj()
 	{
 		if (_isLoadInfo && _isLoadScene && !_isLoadObj)
@@ -220,6 +235,12 @@ public class Base : MonoBehaviour
 			{
 				_techObj.Add(new Obj(mechCollider[i].gameObject));
 			}*/
+
+			_isLoadObj = true;
+		}
+		if (LoadObjEvent != null)
+		{
+			LoadObjEvent();
 		}
 	}
 
