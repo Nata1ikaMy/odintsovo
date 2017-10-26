@@ -11,7 +11,7 @@ public class ChooseList : MonoBehaviour
 
 	void LoadBaseInfo()
 	{		
-		_all = _base.GetAll();
+		_all = _base.GetSale();
 		UpdateScroll();
 
 		_roomCondition.ChangeEvent += UpdateScroll;

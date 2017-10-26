@@ -6,7 +6,19 @@ public class ChooseMenu : MonoBehaviour
 {
 	void Start()
 	{
+		for (int i = 0; i < _list.Length; i++)
+		{
+			_list[i].ClickEvent += Hide;
+		}
 		StartCoroutine(HideCoroutine());
+	}
+
+	void OnDestroy()
+	{
+		for (int i = 0; i < _list.Length; i++)
+		{
+			_list[i].ClickEvent -= Hide;
+		}
 	}
 
 	IEnumerator HideCoroutine()
@@ -40,6 +52,12 @@ public class ChooseMenu : MonoBehaviour
 		this.gameObject.SetActive(false);
 	}
 
-	[SerializeField] GameObject	_chooseTab;
-	[SerializeField] GameObject	_favoriteTab;
+	void Hide(Base.Apartament apart)
+	{
+		Hide();
+	}
+
+	[SerializeField] ListController[]	_list;
+	[SerializeField] GameObject			_chooseTab;
+	[SerializeField] GameObject			_favoriteTab;
 }

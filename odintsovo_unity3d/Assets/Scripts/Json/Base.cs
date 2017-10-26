@@ -9,24 +9,26 @@ public class Base : MonoBehaviour
 
 	public class Apartament
     {
-        public int      id;         //порядковый номер
-        public int      number;    	//настоящий номер
-		public int		room;		//количество комнат
-        public int      floor;      //этаж
-		public int		section;	//секция
-		public float	square;     //площадь
-		public string	mprice;		//цена за кв. м.
-		public int		price;		//цена
-		public string	seller;		//продавец
-		public string	house;      //корпус
-		public bool		isSale;		//в продаже
+        public int      id;         	//порядковый номер
+        public int      number;    		//настоящий номер
+		public int		room;			//количество комнат
+        public int      floor;      	//этаж
+		public int		section;		//секция
+		public float	square;     	//площадь
+		public float	mprice;			//цена за кв. м.
+		public int		price;			//цена
+		public string	seller;			//продавец
+		public string	house;      	//корпус
+		public bool		isSale;			//в продаже
 		public bool		isFavorite = false;
+		public int 		groupFloor;		//группа этажей со схожими планировками
+		public int 		numberFloor;	//номер на лестничной площадке
 
-        public GameObject   model;
-        public MeshRenderer mesh;
+        //public GameObject   model;
+        //public MeshRenderer mesh;
 
-        //public Sprite[]     sprite;
-        //public Sprite       minimap;
+        Sprite		_sprite;
+        Sprite		_sectionSprite;
 
 		public bool SetApartament(System.Object obj)
         {
@@ -68,11 +70,7 @@ public class Base : MonoBehaviour
 			}
 
 
-			if (dictionary.ContainsKey("mprice"))
-			{
-				mprice = dictionary["mprice"].ToString();
-			}
-			else
+			if (! dictionary.ContainsKey("mprice") || ! float.TryParse(dictionary["mprice"].ToString(), out mprice))
 			{
 				return false;
 			}
@@ -126,6 +124,16 @@ public class Base : MonoBehaviour
 				return false;
 			}
 
+			if (! dictionary.ContainsKey("groupFloor") || ! int.TryParse(dictionary["groupFloor"].ToString(), out groupFloor))
+			{
+				return false;
+			}
+
+			if (! dictionary.ContainsKey("numberFloor") || ! int.TryParse(dictionary["numberFloor"].ToString(), out numberFloor))
+			{
+				return false;
+			}
+
 			return true;
         }
 
@@ -143,13 +151,37 @@ public class Base : MonoBehaviour
 			house = copy.house;
 			isSale = copy.isSale;
 			isFavorite = copy.isFavorite;
+			groupFloor = copy.groupFloor;
+			numberFloor = copy.numberFloor;
 		}
 
 		public Sprite GetIcon(bool onlyApart)
 		{
-			Texture2D texture = Resources.Load<Texture2D>(string.Format("Apartament/{0}/{1}{2}", house,  number, onlyApart ? "" : "_section"));
-			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-			return sprite;
+			if (onlyApart && _sprite != null)
+			{
+				return _sprite;
+			}
+			else if (!onlyApart && _sectionSprite != null)
+			{
+				return _sectionSprite;
+			}
+
+			else
+			{
+				Texture2D texture = Resources.Load<Texture2D>(string.Format("Apartament/{0}/{1}_section/{2}_{3}{4}", house, section, groupFloor, numberFloor, onlyApart ? "" : "_section"));
+				Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+
+				if (onlyApart)
+				{
+					_sprite = sprite;
+				}
+				else
+				{
+					_sectionSprite = sprite;
+				}
+
+				return sprite;
+			}
 		}
 
         public override string ToString()
@@ -163,13 +195,13 @@ public class Base : MonoBehaviour
 		}
 
 
-		public void Show(bool show)
+		/*public void Show(bool show)
 		{
 			if (model != null)
 			{
 				model.SetActive(show);
 			}
-		}        
+		}*/
     }
 
     public class Obj
@@ -264,14 +296,17 @@ public class Base : MonoBehaviour
         }
     }*/
 
-	public List<Apartament> GetAll()
+	public List<Apartament> GetSale()
 	{
 		if (_isLoadInfo)
 		{
 			List<Apartament> result = new List<Apartament>();
 			for (int i = 0; i < _apartament.Count; i++)
 			{
-				result.Add(_apartament[i]);
+				if (_apartament[i].isSale)
+				{
+					result.Add(_apartament[i]);
+				}
 			}
 			return result;
 		}

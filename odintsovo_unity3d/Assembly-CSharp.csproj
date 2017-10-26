@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Choose\ListController.cs" />
      <Compile Include="Assets\Scripts\Choose\RoomConditions.cs" />
      <Compile Include="Assets\Scripts\Close.cs" />
+     <Compile Include="Assets\Scripts\InfoMenu.cs" />
      <Compile Include="Assets\Scripts\Json\Base.cs" />
      <Compile Include="Assets\Scripts\Json\JsonUse.cs" />
      <Compile Include="Assets\Scripts\Json\MiniJSON.cs" />
