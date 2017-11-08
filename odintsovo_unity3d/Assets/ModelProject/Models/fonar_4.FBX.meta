@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 7d547d2a282f6b64bbc6352fa6a93415
+timeCreated: 1509702468
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: fonar_4_MeshPart0
+    100004: fonar_4_MeshPart1
+    100006: fonar_4_MeshPart10
+    100008: fonar_4_MeshPart11
+    100010: fonar_4_MeshPart12
+    100012: fonar_4_MeshPart13
+    100014: fonar_4_MeshPart14
+    100016: fonar_4_MeshPart15
+    100018: fonar_4_MeshPart16
+    100020: fonar_4_MeshPart17
+    100022: fonar_4_MeshPart18
+    100024: fonar_4_MeshPart19
+    100026: fonar_4_MeshPart2
+    100028: fonar_4_MeshPart3
+    100030: fonar_4_MeshPart4
+    100032: fonar_4_MeshPart5
+    100034: fonar_4_MeshPart6
+    100036: fonar_4_MeshPart7
+    100038: fonar_4_MeshPart8
+    100040: fonar_4_MeshPart9
+    400000: //RootNode
+    400002: fonar_4_MeshPart0
+    400004: fonar_4_MeshPart1
+    400006: fonar_4_MeshPart10
+    400008: fonar_4_MeshPart11
+    400010: fonar_4_MeshPart12
+    400012: fonar_4_MeshPart13
+    400014: fonar_4_MeshPart14
+    400016: fonar_4_MeshPart15
+    400018: fonar_4_MeshPart16
+    400020: fonar_4_MeshPart17
+    400022: fonar_4_MeshPart18
+    400024: fonar_4_MeshPart19
+    400026: fonar_4_MeshPart2
+    400028: fonar_4_MeshPart3
+    400030: fonar_4_MeshPart4
+    400032: fonar_4_MeshPart5
+    400034: fonar_4_MeshPart6
+    400036: fonar_4_MeshPart7
+    400038: fonar_4_MeshPart8
+    400040: fonar_4_MeshPart9
+    2300000: fonar_4_MeshPart0
+    2300002: fonar_4_MeshPart1
+    2300004: fonar_4_MeshPart10
+    2300006: fonar_4_MeshPart11
+    2300008: fonar_4_MeshPart12
+    2300010: fonar_4_MeshPart13
+    2300012: fonar_4_MeshPart14
+    2300014: fonar_4_MeshPart15
+    2300016: fonar_4_MeshPart16
+    2300018: fonar_4_MeshPart17
+    2300020: fonar_4_MeshPart18
+    2300022: fonar_4_MeshPart19
+    2300024: fonar_4_MeshPart2
+    2300026: fonar_4_MeshPart3
+    2300028: fonar_4_MeshPart4
+    2300030: fonar_4_MeshPart5
+    2300032: fonar_4_MeshPart6
+    2300034: fonar_4_MeshPart7
+    2300036: fonar_4_MeshPart8
+    2300038: fonar_4_MeshPart9
+    3300000: fonar_4_MeshPart0
+    3300002: fonar_4_MeshPart1
+    3300004: fonar_4_MeshPart10
+    3300006: fonar_4_MeshPart11
+    3300008: fonar_4_MeshPart12
+    3300010: fonar_4_MeshPart13
+    3300012: fonar_4_MeshPart14
+    3300014: fonar_4_MeshPart15
+    3300016: fonar_4_MeshPart16
+    3300018: fonar_4_MeshPart17
+    3300020: fonar_4_MeshPart18
+    3300022: fonar_4_MeshPart19
+    3300024: fonar_4_MeshPart2
+    3300026: fonar_4_MeshPart3
+    3300028: fonar_4_MeshPart4
+    3300030: fonar_4_MeshPart5
+    3300032: fonar_4_MeshPart6
+    3300034: fonar_4_MeshPart7
+    3300036: fonar_4_MeshPart8
+    3300038: fonar_4_MeshPart9
+    4300000: fonar_4_MeshPart0
+    4300002: fonar_4_MeshPart1
+    4300004: fonar_4_MeshPart2
+    4300006: fonar_4_MeshPart3
+    4300008: fonar_4_MeshPart4
+    4300010: fonar_4_MeshPart5
+    4300012: fonar_4_MeshPart6
+    4300014: fonar_4_MeshPart7
+    4300016: fonar_4_MeshPart8
+    4300018: fonar_4_MeshPart9
+    4300020: fonar_4_MeshPart10
+    4300022: fonar_4_MeshPart11
+    4300024: fonar_4_MeshPart12
+    4300026: fonar_4_MeshPart13
+    4300028: fonar_4_MeshPart14
+    4300030: fonar_4_MeshPart15
+    4300032: fonar_4_MeshPart16
+    4300034: fonar_4_MeshPart17
+    4300036: fonar_4_MeshPart18
+    4300038: fonar_4_MeshPart19
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

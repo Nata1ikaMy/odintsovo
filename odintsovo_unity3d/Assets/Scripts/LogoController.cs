@@ -8,7 +8,6 @@ public class LogoController : MonoBehaviour
 	void Start()
 	{
 		_base.LoadObjEvent += LoadComplete;
-		LoadComplete();
 	}
 
 	void OnDestroy()
