@@ -24,11 +24,11 @@ public class Base : MonoBehaviour
 		public int 		groupFloor;		//группа этажей со схожими планировками
 		public int 		numberFloor;	//номер на лестничной площадке
 
-        //public GameObject   model;
-        //public MeshRenderer mesh;
+        public GameObject   	model;
+        public MeshRenderer 	mesh;
 
-        Sprite		_sprite;
-        Sprite		_sectionSprite;
+        Sprite					_sprite;
+        Sprite					_sectionSprite;
 
 		public bool SetApartament(System.Object obj)
         {
@@ -153,6 +153,8 @@ public class Base : MonoBehaviour
 			isFavorite = copy.isFavorite;
 			groupFloor = copy.groupFloor;
 			numberFloor = copy.numberFloor;
+			model = copy.model;
+			mesh = copy.mesh;
 		}
 
 		public Sprite GetIcon(bool onlyApart)
@@ -219,13 +221,13 @@ public class Base : MonoBehaviour
     void Awake()
     {
         _json.LoadComplete += LoadInfo;
-		// += LoadObj;
+		_sceneController.SceneIsLoadEvent += LoadScene;
     }
 
     void OnDestroy()
     {
         _json.LoadComplete -= LoadInfo;
-		// -= LoadObj;
+		_sceneController.SceneIsLoadEvent -= LoadScene;
     }
 
     void LoadInfo()
@@ -260,23 +262,43 @@ public class Base : MonoBehaviour
 	{
 		if (_isLoadInfo && _isLoadScene && !_isLoadObj)
 		{
-			//получим список объектов на модели
-			/*MeshCollider[] mechCollider = _parentApart.GetComponentsInChildren<MeshCollider>();
-			_techObj = new List<Obj>();
-			for (int i = 0; i < mechCollider.Length; i++)
-			{
-				_techObj.Add(new Obj(mechCollider[i].gameObject));
-			}*/
-
+			StartCoroutine(LoadObjCoroutine());
 			_isLoadObj = true;
 		}
+	}
+
+	IEnumerator LoadObjCoroutine()
+	{
+		GameObject[] go = GameObject.FindGameObjectsWithTag("Rooms");
+		if (go != null)
+		{
+			for (int i = 0; i < go.Length; i++)
+			{
+				string[] name = go[i].name.Split(new char[] { '_' }, System.StringSplitOptions.RemoveEmptyEntries);
+				if (name != null && name.Length == 5 && name[0] == "Rooms")
+				{
+					for (int j = 0; j < _apartament.Count; j++)
+					{
+						if (name[1] == _apartament[j].house && name[2] == _apartament[j].section.ToString() && name[3] == _apartament[j].floor.ToString() && name[4] == _apartament[j].numberFloor.ToString())
+						{
+							_apartament[i].model = go[i];
+							_apartament[i].mesh = go[i].GetComponent<MeshRenderer>();
+							break;
+						}
+					}
+				}
+				yield return null;
+			}
+		}
+
 		if (LoadObjEvent != null)
 		{
 			LoadObjEvent();
 		}
 	}
 
-    /*public Apartament GetById(int id)
+    /*
+    public Apartament GetById(int id)
     {
         for (int i = 0; i < _apartament.Count; i++)
         {
@@ -294,7 +316,8 @@ public class Base : MonoBehaviour
         {
             _apartament[i].Show(_apartament[i] == apart);
         }
-    }*/
+    }
+    */
 
 	public List<Apartament> GetSale()
 	{
@@ -317,7 +340,8 @@ public class Base : MonoBehaviour
 	}
 
 
-    [SerializeField] JsonUse        _json;
+    [SerializeField] JsonUse			_json;
+	[SerializeField] SceneController	_sceneController;
 
     List<Apartament> 	_apartament;
 	bool 				_isLoadInfo = false;

@@ -186,6 +186,7 @@ public class SliceController : MonoBehaviour
         //_clickController.ClickEvent += ClickApart;
 		_indexFloor = _floor.Length - 1;
 		Click(0);
+		SetActiveButtons(false);
     }
 
     void OnDestroy()
@@ -238,7 +239,7 @@ public class SliceController : MonoBehaviour
             ChangeFloorEvent(index);
         }
 
-        if (_camera.position.y < _floor[index].minY)
+		if (cameraTransform != null && cameraTransform.position.y < _floor[index].minY)
         {
             StartCoroutine(CorutineCameraPosition(_floor[index].minY));
         }
@@ -341,10 +342,10 @@ public class SliceController : MonoBehaviour
         while (time > 0)
         {
             time -= Time.deltaTime;
-            _camera.position = new Vector3(_camera.position.x, _camera.position.y + (y - _camera.position.y) * Time.deltaTime / time, _camera.position.z);
+            cameraTransform.position = new Vector3(cameraTransform.position.x, cameraTransform.position.y + (y - cameraTransform.position.y) * Time.deltaTime / time, cameraTransform.position.z);
             yield return null;
         }
-        _camera.position = new Vector3(_camera.position.x, y, _camera.position.z);
+        cameraTransform.position = new Vector3(cameraTransform.position.x, y, cameraTransform.position.z);
         yield return null;
     }
 
@@ -378,10 +379,17 @@ public class SliceController : MonoBehaviour
 		_floor[index].Set(number, button, obj, anim);
 	}
 
+	public void SetActiveButtons(bool active)
+	{
+		_buttons.SetActive(active);
+	}
+
+	public Transform		        		cameraTransform;
+
     [SerializeField] Floor[]                _floor;
     [SerializeField] DuplexApart[]          _duplex;
-    [SerializeField] Transform		        _camera;
     [SerializeField] GameObject             _lockObj;
+	[SerializeField] GameObject				_buttons;
 
     //[SerializeField] Base                   _base;
     //[SerializeField] InfoController         _info;
