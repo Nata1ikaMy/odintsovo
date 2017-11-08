@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LogoController : MonoBehaviour
 {
@@ -25,8 +26,17 @@ public class LogoController : MonoBehaviour
 		yield return null;
 		yield return null;
 		yield return null;
+
+		Color color = _image.color;
+		for (int i = 10; i > 0; i--)
+		{
+			color.a = i / 10f;
+			_image.color = color;
+			yield return null;
+		}
 		this.gameObject.SetActive(false);
 	}
 
 	[SerializeField] Base	_base;
+	[SerializeField] Image	_image;
 }
