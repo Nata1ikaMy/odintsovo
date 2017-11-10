@@ -9,25 +9,8 @@ public class PanoramaCameraController : MonoBehaviour
 		canRotation = true;
 	}
 
-	public void SetCoroutineState(float angle, float compassAngle)
-	{
-		_corutineRotation = false;
-		_corutineScale = false;
-
-		_cameraTransform.localRotation = Quaternion.identity;
-		//_panorama.localRotation = Quaternion.identity;
-		float plusAngle = (-angle - compassAngle + 720) % 360;
-		_panorama.localRotation = Quaternion.Euler(plusAngle * Vector3.forward);
-		//_angle = angle;
-	}
-
     void Update ()
     {
-		//test
-		//float plusAngle = (-_angle - Input.compass.trueHeading + 720) % 360;
-		//_panorama.localRotation = Quaternion.Euler(plusAngle * Vector3.forward);
-		//_compassText.text = string.Format("{0}+{1} --> {2}", _angle, Input.compass.trueHeading, plusAngle);
-
 		if (canRotation && !_corutineRotation && CameraController.motion)
 		{
 			StartCoroutine(CorutineRotation());

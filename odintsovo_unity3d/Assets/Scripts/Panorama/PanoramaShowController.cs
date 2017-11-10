@@ -36,6 +36,7 @@ public class PanoramaShowController : MonoBehaviour
 		{
 			_buttons[i].Activate(this);
 		}
+		_mainMenu.SetActiveEvent += SetrActiveParentButtons;
 	}
 
 	void OnDestroy()
@@ -44,6 +45,7 @@ public class PanoramaShowController : MonoBehaviour
 		{
 			_buttons[i].Deactivate();
 		}
+		_mainMenu.SetActiveEvent -= SetrActiveParentButtons;
 	}
 
 	public void Show(string name, float angle)
@@ -60,8 +62,7 @@ public class PanoramaShowController : MonoBehaviour
 
 		_cameraController.enabled = false;
 
-		_panorama.material.mainTexture = Resources.Load<Texture>(name);
-		_panoramaCameraController.SetCoroutineState(angle, Input.compass.trueHeading);
+		_panorama.material.mainTexture = Resources.Load<Texture>("Panorama/" + name);
 	}
 
 	public void Hide()
@@ -89,8 +90,6 @@ public class PanoramaShowController : MonoBehaviour
 		_showButtonsPanorama.SetActive (false);
 		_hideButtonsPanorama.SetActive (true);
 		_buttonsPanorama.SetActive (true);
-
-		Input.compass.enabled = true;
 	}
 
 	public void HideButtonsPanorama()
@@ -98,19 +97,24 @@ public class PanoramaShowController : MonoBehaviour
 		_showButtonsPanorama.SetActive (true);
 		_hideButtonsPanorama.SetActive (false);
 		_buttonsPanorama.SetActive (false);
+	}
 
-		Input.compass.enabled = false;
+	void SetrActiveParentButtons(bool show)
+	{
+		_parentButtonsPanorama.SetActive(show);
 	}
 
 	[SerializeField] PanoramaCameraController	_panoramaCameraController;
 	[SerializeField] CameraController			_cameraController;
-	[SerializeField] MeshRenderer	_panorama;
+	[SerializeField] MeshRenderer				_panorama;
+	[SerializeField] MainMenu					_mainMenu;
 
-	[SerializeField] GameObject		_showButtonsPanorama;
-	[SerializeField] GameObject		_hideButtonsPanorama;
-	[SerializeField] GameObject		_buttonsPanorama;
+	[SerializeField] GameObject					_showButtonsPanorama;
+	[SerializeField] GameObject					_hideButtonsPanorama;
+	[SerializeField] GameObject					_buttonsPanorama;
+	[SerializeField] GameObject					_parentButtonsPanorama;
 
-	[SerializeField] ShowButton[]	_buttons;
-	[SerializeField] GameObject[]	_show;
-	[SerializeField] GameObject[]	_hide;
+	[SerializeField] ShowButton[]				_buttons;
+	[SerializeField] GameObject[]				_show;
+	[SerializeField] GameObject[]				_hide;
 }

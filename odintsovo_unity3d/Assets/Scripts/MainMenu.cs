@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-	public System.Action	ClickEvent;
+	public System.Action		ClickEvent;
+	public System.Action<bool>	SetActiveEvent;
 
 	[System.Serializable]
 	public class Menu
@@ -37,7 +38,7 @@ public class MainMenu : MonoBehaviour
 		}
 
 		void Show()
-		{
+		{			
 			_panel.SetActive(true);
 		}
 
@@ -79,11 +80,19 @@ public class MainMenu : MonoBehaviour
 
 	public void Show()
 	{
+		if (SetActiveEvent != null)
+		{
+			SetActiveEvent(true);
+		}
 		this.gameObject.SetActive(true);
 	}
 
 	public void Hide()
 	{
+		if (SetActiveEvent != null)
+		{
+			SetActiveEvent(false);
+		}
 		this.gameObject.SetActive(false);
 	}
 
@@ -95,10 +104,10 @@ public class MainMenu : MonoBehaviour
 		_menuPanel.localScale = Vector3.one;
 	}
 
-	[SerializeField] Menu[] 	_menu;
-	[SerializeField] Transform	_menuPanel;
-	[SerializeField] Transform	_menuShowPosition;
-	[SerializeField] Transform	_menuHidePosition;
+	[SerializeField] Menu[] 		_menu;
+	[SerializeField] Transform		_menuPanel;
+	[SerializeField] Transform		_menuShowPosition;
+	[SerializeField] Transform		_menuHidePosition;
 
 	bool _isShow = true;
 }

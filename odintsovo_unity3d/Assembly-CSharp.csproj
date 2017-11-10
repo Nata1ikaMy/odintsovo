@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Json\JsonUse.cs" />
      <Compile Include="Assets\Scripts\Json\MiniJSON.cs" />
      <Compile Include="Assets\Scripts\LogoController.cs" />
+     <Compile Include="Assets\Scripts\LookAtZ.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Panorama\PanoramaCameraController.cs" />
      <Compile Include="Assets\Scripts\Panorama\PanoramaShowController.cs" />
