@@ -258,19 +258,23 @@ public class Base : MonoBehaviour
 
 	IEnumerator LoadObjCoroutine()
 	{
-		GameObject[] go = GameObject.FindGameObjectsWithTag("Rooms");
+		GameObject model = GameObject.Find("Model");
+
+		MeshCollider[] go = model.GetComponentsInChildren<MeshCollider>(true);
+		//GameObject[] go = GameObject.FindGameObjectsWithTag("Rooms");
+
 		if (go != null)
 		{
 			for (int i = 0; i < go.Length; i++)
 			{
-				string[] name = go[i].name.Split(new char[] { '_' }, System.StringSplitOptions.RemoveEmptyEntries);
+				string[] name = go[i].gameObject.name.Split(new char[] { '_' }, System.StringSplitOptions.RemoveEmptyEntries);
 				if (name != null && name.Length == 5 && name[0] == "Rooms")
 				{
 					for (int j = 0; j < _apartament.Count; j++)
 					{
 						if (name[1] == _apartament[j].house && name[2] == _apartament[j].section.ToString() && name[3] == _apartament[j].floor.ToString() && name[4] == _apartament[j].numberFloor.ToString())
 						{
-							_apartament[i].color = go[i].GetComponent<RoomsColor>();
+							_apartament[j].color = go[i].gameObject.GetComponent<RoomsColor>();
 							break;
 						}
 					}
@@ -283,6 +287,7 @@ public class Base : MonoBehaviour
 		{
 			LoadObjEvent();
 		}
+		yield return null;
 	}
 
     /*

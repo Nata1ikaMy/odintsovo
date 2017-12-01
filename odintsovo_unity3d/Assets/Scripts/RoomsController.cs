@@ -9,12 +9,14 @@ public class RoomsController : MonoBehaviour
 	{
 		_clickController.ClickObjEvent += Click;
 		_chooseController.ChangeHouseEvent += ChangeHouse;
+		_chooseController.ChangeFloorEvent += ChangeFloor;
 	}
 
 	void OnDestroy()
 	{
 		_clickController.ClickObjEvent -= Click;
 		_chooseController.ChangeHouseEvent -= ChangeHouse;
+		_chooseController.ChangeFloorEvent -= ChangeFloor;
 	}
 
 	public void Show()
@@ -31,19 +33,20 @@ public class RoomsController : MonoBehaviour
 	void Click(GameObject obj)
 	{
 		string[] infoString = obj.name.Split(new char[]{ '_' }, System.StringSplitOptions.RemoveEmptyEntries);
-		if (infoString == null || infoString.Length != 5 || infoString[0] != "Rooms" || infoString[1] != _slice.name)
+		if (infoString == null || infoString.Length != 5 || infoString[0] != "Rooms")
 		{
 			return;
 		}
 
-		if (_apart != null)
+		Base.Apartament newApart = _base.GetApart(infoString[1], infoString[2], infoString[3], infoString[4]);
+		if (newApart != null)
 		{
-			_apart.color.SetDisable();
-		}
+			if (_apart != null)
+			{
+				_apart.color.SetDisable();
+			}
 
-		_apart = _base.GetApart(infoString[1], infoString[2], infoString[3], infoString[4]);
-		if (_apart != null)
-		{
+			_apart = newApart;
 			_apart.color.SetActive();
 			_infoMenu.Show(_apart, false);
 		}
@@ -51,7 +54,11 @@ public class RoomsController : MonoBehaviour
 
 	void ChangeHouse(Choose3dMenu.Slice slice)
 	{
-		_slice = slice;
+		HideUI();
+	}
+
+	void ChangeFloor(int index)
+	{
 		HideUI();
 	}
 
@@ -70,6 +77,5 @@ public class RoomsController : MonoBehaviour
 	[SerializeField] Choose3dMenu			_chooseController;
 	[SerializeField] InfoMenu				_infoMenu;
 
-	Choose3dMenu.Slice 	_slice;
 	Base.Apartament		_apart;
 }
