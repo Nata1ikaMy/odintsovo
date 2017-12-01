@@ -41,8 +41,16 @@ public class InfoMenu : MonoBehaviour
 		_parent.SetActive(true);
 		HideSection();
 
-		_chooseParam.SetActive(chooseParam);
-		_choose3d.SetActive(! chooseParam);
+		_apart = apart;
+		_isParam = chooseParam;
+
+		_chooseParam.SetActive(_isParam);
+		_choose3d.SetActive(! _isParam);
+		if (_isParam)
+		{
+			_sliceController = _choose3dMenu.GetSlice(apart.house);
+			_apart.color.SetActive();
+		}
 
 		_plan.sprite = apart.GetIcon(true);
 		_plan.SetNativeSize();
@@ -75,25 +83,58 @@ public class InfoMenu : MonoBehaviour
 	{
 		HideSection();
 		_parent.SetActive(false);
+		if (_isParam)
+		{
+			SliceUpFloor();
+			_apart.color.SetDisable();
+		}
+	}
+
+	public void SliceFloor()
+	{
+		if (_sliceController != null)
+		{
+			_sliceController.ClickFloor(_apart.floor);
+			_slice.SetActive(false);
+			_sliceUp.SetActive(true);
+		}
+	}
+
+	public void SliceUpFloor()
+	{
+		if (_sliceController != null)
+		{
+			_sliceController.ClickUpFloor();
+			_slice.SetActive(true);
+			_sliceUp.SetActive(false);
+		}
 	}
 
 	[SerializeField] ListController[]	_list;
 
-	[SerializeField] Image		_plan;
-	[SerializeField] Image		_planSection;
-	[SerializeField] Text		_houseText;
-	[SerializeField] Text		_sectionText;
-	[SerializeField] Text		_numberText;
-	[SerializeField] Text		_floorText;
-	[SerializeField] Text		_roomText;
-	[SerializeField] Text		_squareText;
-	[SerializeField] Text		_mpriceText;
-	[SerializeField] Text		_priceText;
+	[SerializeField] Image			_plan;
+	[SerializeField] Image			_planSection;
+	[SerializeField] Text			_houseText;
+	[SerializeField] Text			_sectionText;
+	[SerializeField] Text			_numberText;
+	[SerializeField] Text			_floorText;
+	[SerializeField] Text			_roomText;
+	[SerializeField] Text			_squareText;
+	[SerializeField] Text			_mpriceText;
+	[SerializeField] Text			_priceText;
 
-	[SerializeField] GameObject	_parent;
-	[SerializeField] GameObject	_sectionParent;
-	[SerializeField] GameObject	_showSectionButton;
+	[SerializeField] GameObject		_parent;
+	[SerializeField] GameObject		_sectionParent;
+	[SerializeField] GameObject		_showSectionButton;
 
-	[SerializeField] GameObject	_chooseParam;
-	[SerializeField] GameObject _choose3d;
+	[SerializeField] GameObject		_chooseParam;
+	[SerializeField] GameObject 	_choose3d;
+
+	[SerializeField] Choose3dMenu	_choose3dMenu;
+	[SerializeField] GameObject		_slice;
+	[SerializeField] GameObject		_sliceUp;
+
+	bool 							_isParam;
+	Base.Apartament					_apart;
+	SliceController					_sliceController;
 }

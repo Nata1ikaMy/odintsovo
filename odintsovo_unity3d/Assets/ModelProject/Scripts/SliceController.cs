@@ -78,6 +78,19 @@ public class SliceController : MonoBehaviour
             _button.onClick.RemoveListener(Click);
         }
 
+		public bool Click(string floorNumber)
+		{
+			if (floorNumber == _floorNumber)
+			{
+				Click();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
         void Click()
         {
             _slice.Click(index);
@@ -226,6 +239,17 @@ public class SliceController : MonoBehaviour
     {
 		Click(0);
     }
+
+	public void ClickFloor(int floor)
+	{
+		for (int i = 0; i < _floor.Length; i++)
+		{
+			if (_floor[i].Click(floor.ToString()))
+			{
+				return;
+			}
+		}
+	}
 
     public bool Click(int index) //возвращает ложь если уже выбран этот этаж
     {

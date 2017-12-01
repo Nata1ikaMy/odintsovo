@@ -42,6 +42,18 @@ public class Choose3dMenu : MonoBehaviour
 		}
 	}
 
+	public SliceController GetSlice(string house)
+	{
+		for (int i = 0; i < _slice.Length; i++)
+		{
+			if (_slice[i].name.Contains(house) || house.Contains(_slice[i].name) || _slice[i].objName.Contains(house))
+			{
+				return _slice[i].controller;
+			}
+		}
+		return null;
+	}
+
 	void SetSlice(int index)
 	{
 		_slice[_currentIndex].controller.ClickUpFloor();
