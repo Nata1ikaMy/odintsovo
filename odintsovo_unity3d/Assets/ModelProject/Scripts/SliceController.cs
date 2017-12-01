@@ -384,6 +384,15 @@ public class SliceController : MonoBehaviour
 		_buttons.SetActive(active);
 	}
 
+	public int indexFloor
+	{
+		get
+		{
+			return _indexFloor;
+		}
+	}
+
+
 	public Transform		        		cameraTransform;
 
     [SerializeField] Floor[]                _floor;

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Choose3dMenu : MonoBehaviour
 {
+	public System.Action<Slice> ChangeHouseEvent;
+
 	[System.Serializable]
 	public class Slice
 	{
@@ -46,11 +48,16 @@ public class Choose3dMenu : MonoBehaviour
 		_currentIndex = index;
 		_prevButton.interactable = index > 0;
 		_nextButton.interactable = _slice.Length > index + 1;
-		_text.text = _slice[_currentIndex].name;
+		_text.text = "КОРПУС " + _slice[_currentIndex].name;
 
 		for (int i = 0; i < _slice.Length; i++)
 		{
 			_slice[i].controller.SetActiveButtons(i == _currentIndex);
+		}
+
+		if (ChangeHouseEvent != null)
+		{
+			ChangeHouseEvent(_slice[_currentIndex]);
 		}
 	}
 

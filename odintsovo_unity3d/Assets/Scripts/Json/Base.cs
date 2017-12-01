@@ -24,8 +24,7 @@ public class Base : MonoBehaviour
 		public int 		groupFloor;		//группа этажей со схожими планировками
 		public int 		numberFloor;	//номер на лестничной площадке
 
-        public GameObject   	model;
-        public MeshRenderer 	mesh;
+		public RoomsColor		color;
 
         Sprite					_sprite;
         Sprite					_sectionSprite;
@@ -153,8 +152,7 @@ public class Base : MonoBehaviour
 			isFavorite = copy.isFavorite;
 			groupFloor = copy.groupFloor;
 			numberFloor = copy.numberFloor;
-			model = copy.model;
-			mesh = copy.mesh;
+			color = copy.color;
 		}
 
 		public Sprite GetIcon(bool onlyApart)
@@ -195,15 +193,6 @@ public class Base : MonoBehaviour
 		{
 			return id == other.id && number == other.number && room == other.room && floor == other.floor && section == other.section && house == other.house;
 		}
-
-
-		/*public void Show(bool show)
-		{
-			if (model != null)
-			{
-				model.SetActive(show);
-			}
-		}*/
     }
 
     public class Obj
@@ -281,8 +270,7 @@ public class Base : MonoBehaviour
 					{
 						if (name[1] == _apartament[j].house && name[2] == _apartament[j].section.ToString() && name[3] == _apartament[j].floor.ToString() && name[4] == _apartament[j].numberFloor.ToString())
 						{
-							_apartament[i].model = go[i];
-							_apartament[i].mesh = go[i].GetComponent<MeshRenderer>();
+							_apartament[i].color = go[i].GetComponent<RoomsColor>();
 							break;
 						}
 					}
@@ -337,6 +325,19 @@ public class Base : MonoBehaviour
 		{
 			return null;
 		}
+	}
+
+	public Apartament GetApart(string house, string section, string floor, string numberFloor)
+	{
+		for (int i = 0; i < _apartament.Count; i++)
+		{
+			if (_apartament[i].house == house && _apartament[i].section.ToString() == section &&
+			    _apartament[i].floor.ToString() == floor && _apartament[i].numberFloor.ToString() == numberFloor)
+			{
+				return _apartament[i];
+			}
+		}
+		return null;
 	}
 
 

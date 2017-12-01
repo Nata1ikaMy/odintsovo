@@ -9,7 +9,7 @@ public class InfoMenu : MonoBehaviour
 	{
 		for (int i = 0; i < _list.Length; i++)
 		{
-			_list[i].ClickEvent += Show;
+			_list[i].ClickEvent += ShowWithParams;
 		}
 	}
 
@@ -17,11 +17,16 @@ public class InfoMenu : MonoBehaviour
 	{
 		for (int i = 0; i < _list.Length; i++)
 		{
-			_list[i].ClickEvent -= Show;
+			_list[i].ClickEvent -= ShowWithParams;
 		}
 	}
 
-	public void Show(Base.Apartament apart)
+	public void ShowWithParams(Base.Apartament apart)
+	{
+		Show(apart, true);
+	}
+
+	public void Show(Base.Apartament apart, bool chooseParam)
 	{
 		/*if (_plan.sprite != null)
 		{
@@ -35,6 +40,9 @@ public class InfoMenu : MonoBehaviour
 
 		_parent.SetActive(true);
 		HideSection();
+
+		_chooseParam.SetActive(chooseParam);
+		_choose3d.SetActive(! chooseParam);
 
 		_plan.sprite = apart.GetIcon(true);
 		_plan.SetNativeSize();
@@ -85,4 +93,7 @@ public class InfoMenu : MonoBehaviour
 	[SerializeField] GameObject	_parent;
 	[SerializeField] GameObject	_sectionParent;
 	[SerializeField] GameObject	_showSectionButton;
+
+	[SerializeField] GameObject	_chooseParam;
+	[SerializeField] GameObject _choose3d;
 }
