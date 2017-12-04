@@ -13,6 +13,8 @@ public class Choose3dMenu : MonoBehaviour
 	{
 		public string 			name;
 		public string 			objName;
+		public Vector3 			position;
+		public Vector3			rotation;
 		[HideInInspector]
 		public SliceController 	controller;
 	}
@@ -74,6 +76,7 @@ public class Choose3dMenu : MonoBehaviour
 		{
 			_slice[i].controller.SetActiveButtons(i == _currentIndex);
 		}
+		SetCameraPosition();
 
 		if (ChangeHouseEvent != null)
 		{
@@ -123,8 +126,16 @@ public class Choose3dMenu : MonoBehaviour
 		}
 	}
 
+	public void SetCameraPosition()
+	{
+		_cameraController.CamPosition(_slice[_currentIndex].position, false);
+		_rotationController.CamRotation(_slice[_currentIndex].rotation);
+	}
+
 	[SerializeField] GameObject			_parent;
 	[SerializeField] SceneController	_sceneController;
+	[SerializeField] CameraController	_cameraController;
+	[SerializeField] CameraRotationController	_rotationController;
 	[SerializeField] Transform			_camera;
 	[SerializeField] Button				_prevButton;
 	[SerializeField] Button				_nextButton;
