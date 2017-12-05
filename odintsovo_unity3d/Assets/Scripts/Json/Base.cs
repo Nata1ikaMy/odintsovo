@@ -275,6 +275,7 @@ public class Base : MonoBehaviour
 						if (name[1] == _apartament[j].house && name[2] == _apartament[j].section.ToString() && name[3] == _apartament[j].floor.ToString() && name[4] == _apartament[j].numberFloor.ToString())
 						{
 							_apartament[j].color = go[i].gameObject.GetComponent<RoomsColor>();
+							_apartament[j].color.SetInfo(_apartament[j]);
 							break;
 						}
 					}

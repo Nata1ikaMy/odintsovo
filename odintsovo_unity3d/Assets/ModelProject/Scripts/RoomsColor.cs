@@ -1,44 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomsColor : MonoBehaviour
 {
-	public enum ColorType
-	{
-		color1,
-		color2,
-		color3,
-		color4,
-		color5
-	}
 
 	void Start()
 	{
-        if (_colorType == ColorType.color1)
+        MeshRenderer[] mesh = gameObject.GetComponentsInChildren<MeshRenderer>(true);
+        for (int i = 0; i < mesh.Length; i++)
         {
-            _color = new Color(0.8f, 0.8f, 0.8f, 1);
-        }
-        else if (_colorType == ColorType.color2)
-        {
-            _color = new Color(0.65f, 0.65f, 0.65f, 1f);
-        }
-        else if (_colorType == ColorType.color3)
-        {
-            _color = new Color(0.5f, 0.5f, 0.5f, 1f);
-        }
-        else if (_colorType == ColorType.color4)
-        {
-            _color = new Color(0.35f, 0.35f, 0.35f, 1f);
-        }
-        else if (_colorType == ColorType.color5)
-        {
-            _color = new Color(0.2f, 0.2f, 0.2f, 1f);
+            if (mesh[i].name.Contains("Rooms"))
+            {
+                _mesh = mesh[i];
+            }
+            else if (mesh[i].name.Contains("vnesh_col"))
+            {
+                _child = mesh[i].gameObject;
+            }
         }
 
-        _colorActive = new Color(0, 0.6f, 0f, 1f);
+        _color = new Color(0.8f, 0.8f, 0.8f, 1);
+        _colorActive = new Color(0, 200f/255f, 0f, 1f);
 
-		_mesh = gameObject.GetComponent<MeshRenderer>();
         SetDisable();
 	}
 
@@ -48,6 +33,7 @@ public class RoomsColor : MonoBehaviour
         {
             _mesh.material.color = _colorActive;
         }
+        _child.SetActive(true);
     }
 
     public void SetDisable()
@@ -56,10 +42,43 @@ public class RoomsColor : MonoBehaviour
         {
             _mesh.material.color = _color;
         }
+        _child.SetActive(false);
     }
 
-    [SerializeField] ColorType		_colorType;
+    public void SetInfo(Base.Apartament apart)
+    {
+        if (apart.room == 0)
+        {
+            _color = new Color(1f, 165f/255f, 165f/255f, 1f); //красный
+        }
+        else if (apart.room == 1)
+        {
+            _color = new Color(165f/255f, 165f/255f, 1f, 1f); // синий
+        }
+        else if (apart.room == 2)
+        {
+            _color = new Color(1f, 1f, 165f/255f, 1f); // желтый
+        }
+        else if (apart.room == 3)
+        {
+            _color = new Color(1f, 165f/255f, 1f, 1f); //розовый
+        }
+        else if (apart.room == 4)
+        {
+            _color = new Color(165f/255f, 1f, 1f, 1f); //голубой
+        }
+
+        if (textPol != null)
+        {
+			textPol.text = string.Format("№{0}\n{1}\n{2} кв.м.", apart.number, apart.room == 0 ? "Студия" : ("Комнат: " + apart.room), apart.square);
+        }
+        SetDisable();
+    }
+
+    public Text                     textPol;
+
 	MeshRenderer					_mesh;
+    GameObject                      _child;
     Color                           _color;
     Color                           _colorActive;
 }

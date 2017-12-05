@@ -50,6 +50,9 @@ public class InfoMenu : MonoBehaviour
 		{
 			_sliceController = _choose3dMenu.GetSlice(apart.house);
 			_apart.color.SetActive();
+			_oldRoomsParent = _apart.color.gameObject.transform.parent;
+			_apart.color.gameObject.transform.parent = _parentRooms;
+			_apart.color.gameObject.transform.localScale = Vector3.one;
 		}
 
 		_plan.sprite = apart.GetIcon(true);
@@ -87,6 +90,8 @@ public class InfoMenu : MonoBehaviour
 		{
 			SliceUpFloor();
 			_apart.color.SetDisable();
+			_apart.color.gameObject.transform.parent = _oldRoomsParent;
+			_apart.color.gameObject.transform.localScale = Vector3.one;
 		}
 	}
 
@@ -134,7 +139,10 @@ public class InfoMenu : MonoBehaviour
 	[SerializeField] GameObject		_slice;
 	[SerializeField] GameObject		_sliceUp;
 
+	[SerializeField] Transform		_parentRooms;
+
 	bool 							_isParam;
 	Base.Apartament					_apart;
 	SliceController					_sliceController;
+	Transform						_oldRoomsParent;
 }

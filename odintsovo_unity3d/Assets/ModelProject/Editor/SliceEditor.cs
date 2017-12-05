@@ -78,4 +78,30 @@ public class SliceEditor : MonoBehaviour
 			controller.SetFloorEditor((count - 1 - i).ToString(), i, button[i], obj, anim[i]);
 		}
 	}
+
+    [MenuItem("Tools/SetTextToRooms")]
+    static void SetTextToRooms()
+    {
+        GameObject[] rooms = GameObject.FindGameObjectsWithTag("Rooms");
+        GameObject go = GameObject.Find("Canvas3d");
+        Text[] text = go.GetComponentsInChildren<Text>(true);
+
+        for (int i = 0; i < rooms.Length; i++)
+        {
+            string name = rooms[i].name.Remove(0, 6);
+            for (int j = 0; j < text.Length; j++)
+            {
+                if (text[j].name.Contains(name))
+                {
+                    rooms[i].GetComponent<RoomsColor>().textPol = text[j];
+                    break;
+                }
+            }
+
+            if (rooms[i].GetComponent<RoomsColor>().textPol == null)
+            {
+                Debug.Log(name);
+            }
+        }
+    }
 }

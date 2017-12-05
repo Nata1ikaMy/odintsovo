@@ -21,11 +21,13 @@ public class RoomsController : MonoBehaviour
 
 	public void Show()
 	{
+		_isShow = true;
 		_clickController.gameObject.SetActive(true);
 	}
 
 	public void Hide()
 	{
+		_isShow = false;
 		_clickController.gameObject.SetActive(false);
 		HideUI();
 	}
@@ -59,7 +61,10 @@ public class RoomsController : MonoBehaviour
 
 	void ChangeFloor(int index)
 	{
-		HideUI();
+		if (_isShow)
+		{
+			HideUI();
+		}
 	}
 
 	public void HideUI()
@@ -78,4 +83,5 @@ public class RoomsController : MonoBehaviour
 	[SerializeField] InfoMenu				_infoMenu;
 
 	Base.Apartament		_apart;
+	bool 				_isShow = false;
 }
