@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Choose3dMenu.cs" />
      <Compile Include="Assets\Scripts\ClickController.cs" />
      <Compile Include="Assets\Scripts\Close.cs" />
+     <Compile Include="Assets\Scripts\InfoCameraPosition.cs" />
      <Compile Include="Assets\Scripts\InfoMenu.cs" />
      <Compile Include="Assets\Scripts\Json\Base.cs" />
      <Compile Include="Assets\Scripts\Json\JsonUse.cs" />

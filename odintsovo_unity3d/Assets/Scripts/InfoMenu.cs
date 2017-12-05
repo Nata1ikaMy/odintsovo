@@ -49,10 +49,15 @@ public class InfoMenu : MonoBehaviour
 		if (_isParam)
 		{
 			_sliceController = _choose3dMenu.GetSlice(apart.house);
-			_apart.color.SetActive();
-			_oldRoomsParent = _apart.color.gameObject.transform.parent;
-			_apart.color.gameObject.transform.parent = _parentRooms;
-			_apart.color.gameObject.transform.localScale = Vector3.one;
+
+			if (_apart.color != null)
+			{
+				_apart.color.SetActive();
+				_oldRoomsParent = _apart.color.gameObject.transform.parent;
+				_apart.color.gameObject.transform.parent = _parentRooms;
+				_apart.color.gameObject.transform.localScale = Vector3.one;
+				_infoPosition.SetPosition(apart);
+			}
 		}
 
 		_plan.sprite = apart.GetIcon(true);
@@ -89,9 +94,12 @@ public class InfoMenu : MonoBehaviour
 		if (_isParam)
 		{
 			SliceUpFloor();
-			_apart.color.SetDisable();
-			_apart.color.gameObject.transform.parent = _oldRoomsParent;
-			_apart.color.gameObject.transform.localScale = Vector3.one;
+			if (_apart.color != null)
+			{
+				_apart.color.SetDisable();
+				_apart.color.gameObject.transform.parent = _oldRoomsParent;
+				_apart.color.gameObject.transform.localScale = Vector3.one;
+			}
 		}
 	}
 
@@ -117,32 +125,34 @@ public class InfoMenu : MonoBehaviour
 
 	[SerializeField] ListController[]	_list;
 
-	[SerializeField] Image			_plan;
-	[SerializeField] Image			_planSection;
-	[SerializeField] Text			_houseText;
-	[SerializeField] Text			_sectionText;
-	[SerializeField] Text			_numberText;
-	[SerializeField] Text			_floorText;
-	[SerializeField] Text			_roomText;
-	[SerializeField] Text			_squareText;
-	[SerializeField] Text			_mpriceText;
-	[SerializeField] Text			_priceText;
+	[SerializeField] Image				_plan;
+	[SerializeField] Image				_planSection;
+	[SerializeField] Text				_houseText;
+	[SerializeField] Text				_sectionText;
+	[SerializeField] Text				_numberText;
+	[SerializeField] Text				_floorText;
+	[SerializeField] Text				_roomText;
+	[SerializeField] Text				_squareText;
+	[SerializeField] Text				_mpriceText;
+	[SerializeField] Text				_priceText;
 
-	[SerializeField] GameObject		_parent;
-	[SerializeField] GameObject		_sectionParent;
-	[SerializeField] GameObject		_showSectionButton;
+	[SerializeField] GameObject			_parent;
+	[SerializeField] GameObject			_sectionParent;
+	[SerializeField] GameObject			_showSectionButton;
 
-	[SerializeField] GameObject		_chooseParam;
-	[SerializeField] GameObject 	_choose3d;
+	[SerializeField] GameObject			_chooseParam;
+	[SerializeField] GameObject 		_choose3d;
 
-	[SerializeField] Choose3dMenu	_choose3dMenu;
-	[SerializeField] GameObject		_slice;
-	[SerializeField] GameObject		_sliceUp;
+	[SerializeField] Choose3dMenu		_choose3dMenu;
+	[SerializeField] GameObject			_slice;
+	[SerializeField] GameObject			_sliceUp;
 
-	[SerializeField] Transform		_parentRooms;
+	[SerializeField] InfoCameraPosition	_infoPosition;
 
-	bool 							_isParam;
-	Base.Apartament					_apart;
-	SliceController					_sliceController;
-	Transform						_oldRoomsParent;
+	[SerializeField] Transform			_parentRooms;
+
+	bool 								_isParam;
+	Base.Apartament						_apart;
+	SliceController						_sliceController;
+	Transform							_oldRoomsParent;
 }
