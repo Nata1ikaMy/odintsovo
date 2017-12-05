@@ -50,6 +50,7 @@
      <Compile Include="Assets\ModelProject\Scripts\SliceController.cs" />
      <Compile Include="Assets\ModelProject\Scripts\Text3d.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\CameraRotationController.cs" />
      <Compile Include="Assets\Scripts\Choose\ChooseElement.cs" />
      <Compile Include="Assets\Scripts\Choose\ChooseList.cs" />
      <Compile Include="Assets\Scripts\Choose\ChooseMenu.cs" />
