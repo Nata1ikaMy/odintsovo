@@ -11,7 +11,7 @@ public class ClickController : MonoBehaviour
 
 	void Update ()
     {
-#if ! UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS)
+#if ! UNITY_EDITOR //&& (UNITY_ANDROID || UNITY_IOS)
         if (CameraController.IsPointerOverUIObject() || Input.touchCount > 1)
         {
             _timeStart = 0f;
@@ -118,7 +118,7 @@ public class ClickController : MonoBehaviour
     float       _timeStart = 0f;
     const float _timeMaxClick = 0.4f;
 
-#if ! UNITY_EDITOR && (UNITY_ANDROID || UNITY_IOS)
+#if ! UNITY_EDITOR //&& (UNITY_ANDROID || UNITY_IOS)
     Vector3     _mousePosition;
 #endif
 
