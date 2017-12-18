@@ -11,11 +11,13 @@ public class ListController : MonoBehaviour
 	{
 		_obj = new List<ChooseElement>();
 		_otherList.FavoriteEvent += SetFavorite;
+		_infoMenu.FavoriteEvent += SetFavorite;
 	}
 
 	void OnDestroy()
 	{
 		_otherList.FavoriteEvent -= SetFavorite;
+		_infoMenu.FavoriteEvent -= SetFavorite;
 	}
 
 	public enum TypeSort
@@ -249,6 +251,7 @@ public class ListController : MonoBehaviour
 	[SerializeField] GameObject			_sortSquare;
 	[SerializeField] GameObject			_sortPrice;
 	[SerializeField] ListController		_otherList;
+	[SerializeField] InfoMenu 			_infoMenu;
 
 	List<Base.Apartament>	_apart;
 	List<ChooseElement>		_obj;

@@ -39,7 +39,14 @@ public class Choose3dMenu : MonoBehaviour
 	public void Show()
 	{
 		_parent.SetActive(true);
-		SetSlice(0);
+		SetSlice(0,true);
+	}
+
+	public void Show(string house)
+	{
+		_parent.SetActive(true);
+		int index = GetIndex(house);
+		SetSlice(index, false);
 	}
 
 	public void Hide()
@@ -64,9 +71,24 @@ public class Choose3dMenu : MonoBehaviour
 		return null;
 	}
 
-	void SetSlice(int index)
+	int GetIndex(string house)
 	{
-		_slice[_currentIndex].controller.ClickUpFloor();
+		for (int i = 0; i < _slice.Length; i++)
+		{
+			if (_slice[i].name.Contains(house) || house.Contains(_slice[i].name) || _slice[i].objName.Contains(house))
+			{
+				return i;
+			}
+		}
+		return 0;
+	}
+
+	void SetSlice(int index, bool changeCameraPosition)
+	{
+		if (index != _currentIndex || changeCameraPosition)
+		{
+			_slice[_currentIndex].controller.ClickUpFloor();
+		}
 		_currentIndex = index;
 		_prevButton.interactable = index > 0;
 		_nextButton.interactable = _slice.Length > index + 1;
@@ -76,9 +98,13 @@ public class Choose3dMenu : MonoBehaviour
 		{
 			_slice[i].controller.SetActiveButtons(i == _currentIndex);
 		}
-		SetCameraPosition();
 
-		if (ChangeHouseEvent != null)
+		if (changeCameraPosition)
+		{
+			SetCameraPosition();
+		}
+
+		if (changeCameraPosition && ChangeHouseEvent != null)
 		{
 			ChangeHouseEvent(_slice[_currentIndex]);
 		}
@@ -88,7 +114,7 @@ public class Choose3dMenu : MonoBehaviour
 	{
 		if (_currentIndex + 1 < _slice.Length)
 		{
-			SetSlice(_currentIndex + 1);
+			SetSlice(_currentIndex + 1, true);
 		}
 	}
 
@@ -96,7 +122,7 @@ public class Choose3dMenu : MonoBehaviour
 	{
 		if (_currentIndex - 1 >= 0)
 		{			
-			SetSlice(_currentIndex - 1);
+			SetSlice(_currentIndex - 1, true);
 		}
 	}
 
