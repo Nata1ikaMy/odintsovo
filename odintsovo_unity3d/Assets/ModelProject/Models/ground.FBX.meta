@@ -3,17 +3,124 @@ guid: 70cf7a7721e2955428595a2d96839dab
 timeCreated: 1509691764
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: ground_01
+    100004: ground_02
+    100006: ground_03
+    100008: ground_04
+    100010: ground_05
+    100012: ground_06
+    100014: Ground_07
+    100016: ground_07
     400000: //RootNode
+    400002: ground_01
+    400004: ground_02
+    400006: ground_03
+    400008: ground_04
+    400010: ground_05
+    400012: ground_06
+    400014: Ground_07
+    400016: ground_07
     2300000: //RootNode
+    2300002: ground_01
+    2300004: ground_02
+    2300006: ground_03
+    2300008: ground_04
+    2300010: ground_05
+    2300012: ground_06
+    2300014: Ground_07
+    2300016: ground_07
     3300000: //RootNode
+    3300002: ground_01
+    3300004: ground_02
+    3300006: ground_03
+    3300008: ground_04
+    3300010: ground_05
+    3300012: ground_06
+    3300014: Ground_07
+    3300016: ground_07
     4300000: ground
+    4300002: ground_01
+    4300004: Ground_07
+    4300006: ground_03
+    4300008: ground_04
+    4300010: ground_05
+    4300012: ground_06
+    4300014: ground_02
+    4300016: ground_07
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 
+    second: {fileID: 2100000, guid: a6f1b1a5f0cf0924b8d356b1b2f8ae32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Beton Slabs 600 cm
+    second: {fileID: 2100000, guid: c013ec76f73307847ae1b116355eb24b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gravel 400 cm
+    second: {fileID: 2100000, guid: c26c641f37de30b47bef54532978948d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #2143561205'
+    second: {fileID: 2100000, guid: 17ebc1a48b483f24ebdcd3e062e67e90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trava_test_pole_02
+    second: {fileID: 2100000, guid: cdcb2fd7d260fb340ac1ad41aa7eee66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trava_test_pole_03
+    second: {fileID: 2100000, guid: a9563d619063c3b468041c56fb5b6450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _03_concrete
+    second: {fileID: 2100000, guid: b4cc18666df8bec4085540741a5503b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grass2
+    second: {fileID: 2100000, guid: e7689f1af9d9f76489f75526bfa3b22f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pesok
+    second: {fileID: 2100000, guid: d1dbb82898d934d4ab3de06a2cedd098, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poezda
+    second: {fileID: 2100000, guid: 5da79a6f122175e4ea821a5baf91133a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: relsy_01
+    second: {fileID: 2100000, guid: 2783ee593dcd68745993bff71a27fd02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sport_pokrytie_02
+    second: {fileID: 2100000, guid: 102fcf67984efdf4bbdaea4c03f8cecb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stadion_04
+    second: {fileID: 2100000, guid: 83325b48a143cca40b7611653b48ebe4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -26,12 +133,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -39,9 +148,12 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -52,9 +164,10 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 20
+    normalImportMode: 1
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

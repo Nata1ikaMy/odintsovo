@@ -3,7 +3,7 @@ guid: 9b94c040d9eebd24394323163e7379d2
 timeCreated: 1510304526
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: floor_1_MeshPart0
@@ -17,10 +17,72 @@ ModelImporter:
     3300002: floor_1_MeshPart1
     4300000: floor_1_MeshPart0
     4300002: floor_1_MeshPart1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Aluminium Object
+    second: {fileID: 2100000, guid: a26b9147fb76b5b4dae48ea8a3a50afa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome Satin
+    second: {fileID: 2100000, guid: 72579dc4b0f114448bacd2d3676a2f58, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green Bottom
+    second: {fileID: 2100000, guid: ffa4e7c4a6b59024698e64f7233887b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Iron Matte
+    second: {fileID: 2100000, guid: 375c0e5e9ca37d74ca166541cf85cfaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #2147453966'
+    second: {fileID: 2100000, guid: bd5d52a8061a2f74d97587d7de6db2a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #2147471354'
+    second: {fileID: 2100000, guid: 79d9eb2bf3614604d9cbc88d86e38835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROOF_mat
+    second: {fileID: 2100000, guid: 52d4cb26e3c65174a96f37cfc0fe3f5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vanadium
+    second: {fileID: 2100000, guid: 8a2a6affb0cdd0c4ab0b1974ca118cd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window (Exterior)
+    second: {fileID: 2100000, guid: 1532882a1939f904fb9f9d494be4cd02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: archexteriors11_005__001_7
+    second: {fileID: 2100000, guid: 91320a459169e904199651dcdc94ab2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 314d3cfffc1eace458b7abc641877d2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white vynil
+    second: {fileID: 2100000, guid: 7248810487875c341897ee8dc6a7590d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -33,12 +95,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -46,9 +110,12 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -62,6 +129,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

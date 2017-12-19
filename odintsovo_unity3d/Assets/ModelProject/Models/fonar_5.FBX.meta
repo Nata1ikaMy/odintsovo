@@ -3,7 +3,7 @@ guid: b056aa517837be04c802d0cf5c843d2a
 timeCreated: 1509702549
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     100002: fonar_5_MeshPart0
@@ -21,6 +21,7 @@ ModelImporter:
     100026: fonar_5_MeshPart7
     100028: fonar_5_MeshPart8
     100030: fonar_5_MeshPart9
+    100032: fonar_5_MeshPart15
     400000: //RootNode
     400002: fonar_5_MeshPart0
     400004: fonar_5_MeshPart1
@@ -37,6 +38,7 @@ ModelImporter:
     400026: fonar_5_MeshPart7
     400028: fonar_5_MeshPart8
     400030: fonar_5_MeshPart9
+    400032: fonar_5_MeshPart15
     2300000: fonar_5_MeshPart0
     2300002: fonar_5_MeshPart1
     2300004: fonar_5_MeshPart10
@@ -52,6 +54,7 @@ ModelImporter:
     2300024: fonar_5_MeshPart7
     2300026: fonar_5_MeshPart8
     2300028: fonar_5_MeshPart9
+    2300030: fonar_5_MeshPart15
     3300000: fonar_5_MeshPart0
     3300002: fonar_5_MeshPart1
     3300004: fonar_5_MeshPart10
@@ -67,6 +70,7 @@ ModelImporter:
     3300024: fonar_5_MeshPart7
     3300026: fonar_5_MeshPart8
     3300028: fonar_5_MeshPart9
+    3300030: fonar_5_MeshPart15
     4300000: fonar_5_MeshPart0
     4300002: fonar_5_MeshPart1
     4300004: fonar_5_MeshPart2
@@ -82,10 +86,38 @@ ModelImporter:
     4300024: fonar_5_MeshPart12
     4300026: fonar_5_MeshPart13
     4300028: fonar_5_MeshPart14
+    4300030: fonar_5_MeshPart15
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #101'
+    second: {fileID: 2100000, guid: 8931cdcf132f5c94990008818b59c29f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #102'
+    second: {fileID: 2100000, guid: d1c0136b9378e274e8fbce1a44df862f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #103'
+    second: {fileID: 2100000, guid: 0c6f9d3000c4d894fa19376f10302665, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #104'
+    second: {fileID: 2100000, guid: c819b130740f3d34ca8d4b56296c9922, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #105'
+    second: {fileID: 2100000, guid: b422160107273da43b22bbcecf4f09f6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -98,12 +130,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -111,9 +145,12 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -127,6 +164,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
