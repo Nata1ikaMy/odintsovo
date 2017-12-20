@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AppMetrica\Editor\PostprocessBuildPlayerAppMetrica.cs" />
      <Compile Include="Assets\Marmoset\External\Lightmapping Extended\Editor\ILConfig.cs" />
      <Compile Include="Assets\Marmoset\External\Lightmapping Extended\Editor\LMExtendedWindow.cs" />
      <Compile Include="Assets\Marmoset\External\Lightmapping Extended\Editor\SavePresetWindow.cs" />
@@ -135,7 +134,6 @@
      <None Include="Assets\Marmoset\Shader\MarmosetDirect.cginc" />
      <None Include="Assets\Marmoset\Shader\VertexColor\Marmoset Specular IBL.shader" />
      <None Include="Assets\ModelProject\Shaders\Unlit-Alpha_InfoPlanes.shader" />
-     <None Include="Assets\AppMetrica\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Marmoset\Shader\Mobile\Transparent\Marmoset Bumped Diffuse IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\Marmoset Simple First Pass.shader" />
      <None Include="Assets\Marmoset\Shader\Transparent\Cutout\Marmoset Bumped Diffuse IBL.shader" />
