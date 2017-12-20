@@ -51,6 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AppMetrica\AppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\BaseYandexAppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\AnotherSceneManager.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\MainSceneManager.cs" />
+     <Compile Include="Assets\AppMetrica\ExampleUI\PopUp.cs" />
+     <Compile Include="Assets\AppMetrica\IYandexAppMetrica.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaAndroid.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaConfig.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaDummy.cs" />
+     <Compile Include="Assets\AppMetrica\YandexAppMetricaIOS.cs" />
+     <Compile Include="Assets\AppMetrica\YMMJSONUtils.cs" />
      <Compile Include="Assets\Marmoset\Examples\Script\BlendList.cs" />
      <Compile Include="Assets\Marmoset\Examples\Script\FreeCamera.cs" />
      <Compile Include="Assets\Marmoset\Examples\Script\MopedDemo.cs" />
@@ -158,6 +169,7 @@
      <None Include="Assets\Marmoset\Shader\MarmosetDirect.cginc" />
      <None Include="Assets\Marmoset\Shader\VertexColor\Marmoset Specular IBL.shader" />
      <None Include="Assets\ModelProject\Shaders\Unlit-Alpha_InfoPlanes.shader" />
+     <None Include="Assets\AppMetrica\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\Marmoset\Shader\Mobile\Transparent\Marmoset Bumped Diffuse IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\Marmoset Simple First Pass.shader" />
      <None Include="Assets\Marmoset\Shader\Transparent\Cutout\Marmoset Bumped Diffuse IBL.shader" />
