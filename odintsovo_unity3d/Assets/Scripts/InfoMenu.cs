@@ -39,6 +39,7 @@ public class InfoMenu : MonoBehaviour
 		{
 			Resources.UnloadAsset(_planSection.sprite);
 		}*/
+		_isShow = true;
 
 		_parent.SetActive(true);
 		HideSection();
@@ -93,24 +94,32 @@ public class InfoMenu : MonoBehaviour
 
 	public void Hide()
 	{
-		Close();
-		if (_isParam)
-		{
-			SliceUpFloor();
+		if (_isShow)
+		{			
+			Close();
+			if (_isParam)
+			{
+				SliceUpFloor();
+			}
 		}
 	}
 
 	void Close()
 	{
-		HideSection();
-		_parent.SetActive(false);
-		if (_isParam)
+		if (_isShow)
 		{
-			if (_apart.color != null)
+			_isShow = false;
+
+			HideSection();
+			_parent.SetActive(false);
+			if (_isParam)
 			{
-				_apart.color.SetDisable();
-				_apart.color.gameObject.transform.parent = _oldRoomsParent;
-				_apart.color.gameObject.transform.localScale = Vector3.one;
+				if (_apart.color != null)
+				{
+					_apart.color.SetDisable();
+					_apart.color.gameObject.transform.parent = _oldRoomsParent;
+					_apart.color.gameObject.transform.localScale = Vector3.one;
+				}
 			}
 		}
 	}
@@ -143,18 +152,18 @@ public class InfoMenu : MonoBehaviour
 
 	public void ClickFavorite()
 	{
-		/*SetFavorite(! _apart.isFavorite);
+		SetFavorite(! _apart.isFavorite);
 		if (FavoriteEvent != null)
 		{
 			FavoriteEvent(_apart);
-		}*/
+		}
 	}
 
 	void SetFavorite(bool fav)
 	{
-		/*_apart.isFavorite = fav;
+		_apart.isFavorite = fav;
 		_favYes.SetActive(fav);
-		_favNo.SetActive(!fav);*/
+		_favNo.SetActive(!fav);
 	}
 
 	[SerializeField] ListController[]	_list;
@@ -189,8 +198,10 @@ public class InfoMenu : MonoBehaviour
 	[SerializeField] GameObject			_favNo;
 	[SerializeField] GameObject			_favYes;
 
+	bool								_isShow = false;
 	bool 								_isParam;
 	Base.Apartament						_apart;
 	SliceController						_sliceController;
 	Transform							_oldRoomsParent;
+
 }

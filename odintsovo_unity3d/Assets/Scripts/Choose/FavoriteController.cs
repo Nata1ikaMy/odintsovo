@@ -9,6 +9,7 @@ public class FavoriteController : MonoBehaviour
 		_apart = new List<Base.Apartament>();
 		_favoriteList.FavoriteEvent += Favorite;
 		_chooseList.FavoriteEvent += Favorite;
+		_info.FavoriteEvent += Favorite;
 	}
 
 	public void Add(Base.Apartament element)
@@ -39,6 +40,11 @@ public class FavoriteController : MonoBehaviour
 
 	public bool Contains(Base.Apartament element)
 	{
+		if (_apart == null)
+		{
+			return false;
+		}
+
 		for (int i = 0; i < _apart.Count; i++)
 		{
 			if (_apart[i].Equals(element))
@@ -64,6 +70,7 @@ public class FavoriteController : MonoBehaviour
 	[SerializeField] Base				_base;
 	[SerializeField] ListController		_favoriteList;
 	[SerializeField] ListController		_chooseList;
+	[SerializeField] InfoMenu			_info;
 
 	List<Base.Apartament>	_apart;
 }
