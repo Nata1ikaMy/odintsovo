@@ -14,8 +14,8 @@ public class SceneController : MonoBehaviour
 
 	IEnumerator LoadYourAsyncScene()
 	{
-		//AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Final_Scene", LoadSceneMode.Additive);
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("rooms", LoadSceneMode.Additive);
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Final_Scene", LoadSceneMode.Additive);
+		//AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("rooms", LoadSceneMode.Additive);
 		while (!asyncLoad.isDone)
 		{
 			yield return null;
