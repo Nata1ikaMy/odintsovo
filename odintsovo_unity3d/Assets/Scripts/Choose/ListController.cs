@@ -231,12 +231,15 @@ public class ListController : MonoBehaviour
 
 	void SetFavorite(Base.Apartament apart)
 	{
-		for (int i = 0; i < _apart.Count; i++)
+		if (_apart != null)
 		{
-			if (_apart[i].Equals(apart))
+			for (int i = 0; i < _apart.Count; i++)
 			{
-				_apart[i].isFavorite = apart.isFavorite;
-				_obj[i].SetFavorite(apart.isFavorite);
+				if (_apart[i].Equals(apart))
+				{
+					_apart[i].isFavorite = apart.isFavorite;
+					_obj[i].SetFavorite(apart.isFavorite);
+				}
 			}
 		}
 	}

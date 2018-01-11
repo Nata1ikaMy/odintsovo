@@ -67,6 +67,15 @@ public class InfoMenu : MonoBehaviour
 
 		_plan.sprite = apart.GetIcon(true);
 		_plan.SetNativeSize();
+		if (_planTransform.sizeDelta.y >= 900)
+		{
+			_planTransform.localScale = new Vector3(0.4f, 0.4f, 1f);
+		}
+		else
+		{
+			_planTransform.localScale = new Vector3(0.5f, 0.5f, 1f);
+		}
+
 		_planSection.sprite = apart.GetIcon(false);
 		_planSection.SetNativeSize();
 
@@ -153,15 +162,20 @@ public class InfoMenu : MonoBehaviour
 	public void ClickFavorite()
 	{
 		SetFavorite(! _apart.isFavorite);
-		if (FavoriteEvent != null)
-		{
-			FavoriteEvent(_apart);
-		}
 	}
 
-	void SetFavorite(bool fav)
+	public void SetFavorite(bool fav)
 	{
-		_apart.isFavorite = fav;
+		if (_apart.isFavorite != fav)
+		{
+			_apart.isFavorite = fav;
+
+			if (FavoriteEvent != null)
+			{
+				FavoriteEvent(_apart);
+			}
+		}
+
 		_favYes.SetActive(fav);
 		_favNo.SetActive(!fav);
 	}
@@ -170,6 +184,8 @@ public class InfoMenu : MonoBehaviour
 
 	[SerializeField] Image				_plan;
 	[SerializeField] Image				_planSection;
+	[SerializeField] RectTransform		_planTransform;
+
 	[SerializeField] Text				_houseText;
 	[SerializeField] Text				_sectionText;
 	[SerializeField] Text				_numberText;
