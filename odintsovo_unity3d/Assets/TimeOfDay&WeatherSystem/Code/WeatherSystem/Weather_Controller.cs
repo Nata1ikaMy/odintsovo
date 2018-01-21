@@ -442,6 +442,7 @@ public class Weather_Controller : MonoBehaviour
             gTimeOfDay.GetComponent<ToD_Base>().lMoon.color = Color.Lerp(gTimeOfDay.GetComponent<ToD_Base>().lMoon.color, moonLightColor, Time.deltaTime / fadeTime);
         }
 
+		/*
         // Skybox settings
         if (_bUsingProceduralSkybox == false)
             RenderSettings.skybox.SetColor("_Tint", Color.Lerp(RenderSettings.skybox.GetColor("_Tint"), skyTint, Time.deltaTime / fadeTime));
@@ -456,6 +457,8 @@ public class Weather_Controller : MonoBehaviour
             matClouds.color = Color.Lerp(matClouds.color, cloudColor, Time.deltaTime / fadeTime);
         else
             Debug.LogWarning("We have no cloud material attached to:" + this.gameObject);
+
+		*/
 
         // Fog settings
         RenderSettings.fogDensity = Mathf.Lerp(RenderSettings.fogDensity, fogDensity, Time.deltaTime / fadeTime);
