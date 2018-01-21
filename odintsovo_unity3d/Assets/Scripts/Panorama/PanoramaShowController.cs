@@ -6,6 +6,28 @@ using UnityEngine.UI;
 public class PanoramaShowController : MonoBehaviour
 {
 	[System.Serializable]
+	public class ShowObjByName
+	{
+		[SerializeField] string _objName;
+		[SerializeField] bool	_show;
+
+		GameObject	_obj;
+
+		public void SetActive(bool show)
+		{
+			if (_obj == null)
+			{
+				_obj = GameObject.Find(_objName);
+			}
+
+			if (_obj != null)
+			{
+				_obj.SetActive(show == _show);
+			}
+		}
+	}
+
+	[System.Serializable]
 	public class ShowButton
 	{
 		[SerializeField] Button _button;
@@ -60,6 +82,11 @@ public class PanoramaShowController : MonoBehaviour
 			_hide[i].SetActive(false);
 		}
 
+		for (int i = 0; i < _objByName.Length; i++)
+		{
+			_objByName[i].SetActive(true);
+		}
+
 		_cameraController.enabled = false;
 
 		_panorama.material.mainTexture = Resources.Load<Texture>("Panorama/" + name);
@@ -75,6 +102,11 @@ public class PanoramaShowController : MonoBehaviour
 		for (int i = 0; i < _hide.Length; i++)
 		{
 			_hide[i].SetActive(true);
+		}
+
+		for (int i = 0; i < _objByName.Length; i++)
+		{
+			_objByName[i].SetActive(false);
 		}
 
 		_cameraController.enabled = true;
@@ -117,4 +149,5 @@ public class PanoramaShowController : MonoBehaviour
 	[SerializeField] ShowButton[]				_buttons;
 	[SerializeField] GameObject[]				_show;
 	[SerializeField] GameObject[]				_hide;
+	[SerializeField] ShowObjByName[]			_objByName;
 }

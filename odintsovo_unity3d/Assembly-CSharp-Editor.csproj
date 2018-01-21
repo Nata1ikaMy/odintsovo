@@ -79,6 +79,13 @@
      <Compile Include="Assets\Marmoset\Skyshop\Editor\SkyshopUtil.cs" />
      <Compile Include="Assets\ModelProject\Editor\LightEditor.cs" />
      <Compile Include="Assets\ModelProject\Editor\SliceEditor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\ToD_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherCloudy_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherController_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherRain_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherSnow_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherSun_Editor.cs" />
+     <Compile Include="Assets\TimeOfDay&amp;WeatherSystem\Code\Editor\WeatherThunderstorm_Editor.cs" />
      <None Include="Assets\Marmoset\Shader\VertexColor\Marmoset Bumped Specular IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Beta\Skin\Marmoset Skin Detail IBL.shader" />
      <None Include="Assets\Marmoset\Documentation\Scripting.txt" />
@@ -157,6 +164,7 @@
      <None Include="Assets\Marmoset\Shader\Mobile\VertexOcclusion\Marmoset Bumped Specular Vertex Occ IBL.shader" />
      <None Include="Assets\Marmoset\Shader\MarmosetSurf.cginc" />
      <None Include="Assets\Marmoset\Shader\Beta\Layered\Marmoset 2-Layer Vertex IBL.shader" />
+     <None Include="Assets\TimeOfDay&amp;WeatherSystem\Documents\ContactInformation.txt" />
      <None Include="Assets\Marmoset\Shader\Mobile\Transparent\Marmoset Specular IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\TreeCreator\TreeCreatorLeavesRendertex.shader" />
      <None Include="Assets\Marmoset\Shader\Probe\Marmoset RGBM Blit.shader" />
@@ -209,6 +217,7 @@
      <None Include="Assets\Marmoset\Shader\Mobile\Marmoset Specular IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\Marmoset Mobile Terrain Diffuse.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\SoftOcclusion\TreeSoftOcclusionLeaves.shader" />
+     <None Include="Assets\TimeOfDay&amp;WeatherSystem\Documents\VersionInformation.txt" />
      <None Include="Assets\Marmoset\Shader\Matte\Marmoset Matte.shader" />
      <None Include="Assets\Marmoset\Shader\Terrain\TreeCreator\TreeCreatorBarkOptimized.shader" />
      <None Include="Assets\Marmoset\Shader\Mobile\Illumin\Marmoset Bumped Specular IBL.shader" />
@@ -314,19 +323,19 @@
  <HintPath>C:/Program Files/Unity2017.2.0p4/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Users/ngulyaeva/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@1.0.7/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@1.0.7/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/ngulyaeva/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Analytics">
- <HintPath>C:/Users/ngulyaeva/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/Editor/UnityEditor.Analytics.dll</HintPath>
+ <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/ngulyaeva/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>C:/Users/ngulyaeva/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity2017.2.0p4/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
