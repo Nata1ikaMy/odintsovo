@@ -75,6 +75,7 @@
      <Compile Include="Assets\Marmoset\Skyshop\Script\SkyManager.cs" />
      <Compile Include="Assets\Marmoset\Skyshop\Script\SkyProbe.cs" />
      <Compile Include="Assets\Marmoset\Skyshop\Script\Util.cs" />
+     <Compile Include="Assets\ModelProject\Scripts\AnimationAlpha.cs" />
      <Compile Include="Assets\ModelProject\Scripts\PrefabLightmapData.cs" />
      <Compile Include="Assets\ModelProject\Scripts\RoomsColor.cs" />
      <Compile Include="Assets\ModelProject\Scripts\SliceController.cs" />
