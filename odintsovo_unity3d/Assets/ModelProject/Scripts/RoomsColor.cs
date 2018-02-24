@@ -21,8 +21,8 @@ public class RoomsColor : MonoBehaviour
             }
         }
 
-        _color = new Color(0.8f, 0.8f, 0.8f, 1);
-        _colorActive = new Color(0, 200f/255f, 0f, 1f);
+        _color = new Color(100f/255f, 100f/255f, 100f/255f, 1);
+        _colorActive = new Color(0, 100f/255f, 0f, 1f);
 
         SetDisable();
 	}
@@ -49,23 +49,23 @@ public class RoomsColor : MonoBehaviour
     {
         if (apart.room == 0)
         {
-            _color = new Color(1f, 165f/255f, 165f/255f, 1f); //красный
+            _color = new Color(100f/255f, 50f/255f, 50f/255f, 1f); //красный
         }
         else if (apart.room == 1)
         {
-            _color = new Color(165f/255f, 165f/255f, 1f, 1f); // синий
+            _color = new Color(50f/255f, 50f/255f, 100f/255f, 1f); // синий
         }
         else if (apart.room == 2)
         {
-            _color = new Color(1f, 1f, 165f/255f, 1f); // желтый
+            _color = new Color(100f/255f, 100f/255f, 50f/255f, 1f); // желтый
         }
         else if (apart.room == 3)
         {
-            _color = new Color(1f, 165f/255f, 1f, 1f); //розовый
+            _color = new Color(100f/255f, 50f/255f, 100f/255f, 1f); //розовый
         }
         else if (apart.room == 4)
         {
-            _color = new Color(165f/255f, 1f, 1f, 1f); //голубой
+            _color = new Color(50f/255f, 100f/255f, 100f/255f, 1f); //голубой
         }
 
         if (textPol != null)

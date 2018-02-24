@@ -10,23 +10,19 @@ public class ToD_Clock : MonoBehaviour
 		z
 	};
 
-
-    public GameObject gTimeOfDay;
+	public ToD_Base clToDBase;
     public Transform tHourHand;
     public Transform tMinuteHand;
 	public Axis axis;
+	public GameObject pauseObj;
+	bool _isPlay = true;
 
-    private ToD_Base clToDBase;
 
     // The number of degrees per hour
     private float fHoursToDegrees = 360.0f / 12.0f;
     // The number of degrees per minute
     private float fMinutesToDegrees = 360.0f / 60.0f;
 
-	void Awake() 
-    {
-        clToDBase = gTimeOfDay.GetComponent<ToD_Base>();
-	}
 
 	void Update() 
     {
@@ -49,8 +45,14 @@ public class ToD_Clock : MonoBehaviour
 		{
 			tHourHand.localRotation = Quaternion.Euler(0, 0, -fCurrentHour * fHoursToDegrees);
 			tMinuteHand.localRotation = Quaternion.Euler(0, 0, -fCurrentMinute * fMinutesToDegrees);
-		}
-        
+		}        
+	}
+
+	public void Pause()
+	{
+		_isPlay = !_isPlay;
+		pauseObj.SetActive(!_isPlay);
+		clToDBase.enabled = _isPlay;
 	}
 }
 
